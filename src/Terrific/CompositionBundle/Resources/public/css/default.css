@@ -1,0 +1,29 @@
+/* reduced set of OOCSS rules */
+.page{margin:0 auto;width:960px;_text-align:left;}
+.leftCol{float:left;width:250px;_margin-right:-3px;}
+.rightCol{float:right;width:300px;_margin-left:-3px;}
+
+.bd {overflow:hidden; *overflow:visible; zoom:1;}
+
+.media{overflow:hidden;*overflow:visible;zoom:1;}
+.media .left{float:left;}
+.media .right{float:right;}
+.media img.left, .media img.right{display: block}
+
+.line,.lastUnit{overflow:hidden; *overflow:visible;*zoom:1;}
+.unit{float:left;}
+.unitRight{float:right;}
+.size1of2{width:50%;}
+.size1of3{width:33.33333%;}
+.size2of3{width:66.66666%;}
+.lastUnit{float:none;width:auto;_position:relative;_left:-3px;_margin-right:-3px;}
+
+/* clearfix */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}

@@ -1,0 +1,276 @@
+<div class="rich">
+    <p>Gives your <em>Modules</em> the power to communicate with the <em>Application</em>.</p>
+
+    <p>The <em>Sandbox</em> instance is shared among all <em>Modules</em> and is the only way for them to communicate
+        with the <em>Application</em>. It provides a set of functionality that needs knowledge of either all involved
+        <em>Module</em> instances or the <em>Application</em> itself.</p>
+
+    <h3 id="addmodules">addModules</h3>
+
+    <p>Thinking of Ajax and the Module markup you may retrieve - How would you apply JavaScript functionality to these
+        snippets? addModules provides you exactly that - the possibility to easily add modules dynamically.</p>
+
+{% highlight 'js' 'pygment' %}
+/**
+ * Adds (register and start) all modules in the given context scope.
+ *
+ * @method addModules
+ * @param {jQuery} $ctx the jquery context.
+ * @return {Array} a list containing the references of the registered modules.
+ */
+addModules: function($ctx) {
+{% endhighlight %}
+
+    <p>
+        <em>addModules</em> is a very handy method that allows you to register and start new <em>Modules</em> by simply
+        passing a jQuery object containing the <em>Module(s)</em> DOM as the one and only parameter.
+    </p>
+
+    <p>
+        With ie. widget systems or lazy loading techniques in mind this turns into a very powerful utility.
+    </p>
+    <h4 id="addwidgets">Example: Add new widgets</h4>
+
+    <p>
+        This code could ie. be placed in the onBinding phase of your widget chooser module.
+    </p>
+
+{% highlight 'js' 'pygment' %}
+// Bind the click event to add a new widget
+$('.addWidget', this.$ctx).bind('click', function() {
+    var modules = [];
+
+    $.ajax({
+        url: '<url to get the markup of the widget(s)>',
+        success: function(data) {
+            // if needed: wrap the markup with a div (it is used as context parameter, because modules are only found if they are not the root element)
+            var $data = $(data).wrap('<div></div>').parent();
+
+            // if needed: connect the widget(s) to the appropriate connector channels
+            $('.mod', $data).data('connectors', ["1"]);
+
+            // register and start the modules in $data
+            modules = that.sandbox.addModules($data);
+
+            // add them to the DOM
+            $('.body').append($data);
+        }
+    });
+
+    return false;
+});
+{% endhighlight %}
+    <p>
+        The snippet above registers and starts the found <em>Modules</em> in <em>$data</em>. <em>addModules</em> returns
+        an array containing the instances of the found <em>Modules</em>. Isn't that simple?
+    </p>
+
+    <h3 id="removemodules">removeModules</h3>
+
+{% highlight 'js' 'pygment' %}
+/**
+ * Removes (stop and unregister) the modules by the given module instances.
+ *
+ * @method removeModules
+ * @param {Array} modules a list containting the module instances to remove.
+ * @return {void}
+ */
+removeModules: function(modules) {
+{% endhighlight %}
+
+    <p>
+        <em>removeModules</em> is the opposite of <em>addModules</em>. As parameter you have to pass in an array
+        containing the <em>Module</em> instances (ie. the return value of <em>addModules</em> or <em>getModuleById</em>).
+    </p>
+
+    <p>
+        The given modules are stopped and unregistered. In other words: everything gets cleaned up - all references to
+        the <em>Modules</em> are being deleted and all jQuery data and events are being removed from the <em>Module</em>
+        DOM. So after that, the modules are only plain markup again - without any functionality.
+    </p>
+    <h4 id="removewidgets">Example: A widget removes itself</h4>
+
+    <p>
+        This is code could ie. be placed in the onBinding phase of the widget.
+    </p>
+
+{% highlight 'js' 'pygment' %}
+// Bind the click event to remove the widget itself
+$('.removeWidget', this.$ctx).bind('click', function() {
+    // stop and unregister the module itself
+    that.sandbox.removeModules([that]);
+
+    // remove it from the DOM
+    that.$ctx.remove();
+
+    return false;
+});
+{% endhighlight %}
+
+    <p>
+        After running the above, it is like the widget never existed.
+    </p>
+
+    <p>
+        <strong>Notice</strong>: Removing all jQuery data and events from the module DOM is an expensive operation,
+        because every single Node has to be checked! This expensive operation takes place in the <em>stop</em> method of
+        the base <em>Module</em> (the one that all of your <em>Modules</em> inherit from). If, like in the above
+        example, the module is getting removed from the DOM afterwards, this operation is not necessary because jQuery
+        cleans up automatically.
+    </p>
+
+    <p>
+        In this case it would be better to overwrite the <em>stop</em> method in the widget. As a best practice we
+        recommend you to overwrite the <em>stop</em> method in your <em>Module</em> and unbind your bound events and
+        jQuery data manually.
+    </p>
+    <h4 id="stop">Example: Overwriting the stop method</h4>
+
+    <p>In your module could do something like:</p>
+
+{% highlight 'js' 'pygment' %}
+stop: function() {
+    var $ctx = this.$ctx;
+
+    // unbind the previously bound click event
+    $('.removeWidget', $ctx).unbind('click');
+
+    // remove all data attributes from the module node
+    $ctx.removeData();
+}
+{% endhighlight %}
+    <p>
+        This unbinds your previously bound click event. Furthermore, all TerrificJS specific data attributes get removed
+        from the module node.
+    </p>
+
+    <h3 id="getmodulebyid">getModuleById</h3>
+    <p>Connectors allow you to loosely couple your Modules. Although, in some rare cases you need a bit more
+        flexibility and control. If so - getModuleById is your choice!</p>
+
+
+{% highlight 'js' 'pygment' %}
+/**
+ * Gets the appropriate module for the given id.
+ *
+ * @method getModuleById
+ * @param {int} id the module id
+ * @return {Module} the appropriate module
+ */
+getModuleById: function(id) {
+{% endhighlight %}
+    <p>
+        In most cases your <em>Modules</em> will communicate with each other over <em>Connector</em> channels (or jquery
+        custom events if they better fit your needs). Using <em>Connectors</em> lets you couple your <em>Modules</em>
+        loosely, which is great because your application will not break if one of the <em>Modules</em> does not exist on
+        a page.
+    </p>
+
+    <p>
+        Despite the fact that <em>getModuleById</em> breaks with the loose coupling principle, it can be very useful in
+        some cases where you need a bit more flexibility and control over your <em>Modules</em>
+    </p>
+
+    <p>
+        <em>getModuleById</em> makes it possible to access other <em>Module</em> instances directly without
+        communicating over connectors.
+    </p>
+    <h4 id="statuspolling">Example: Status polling</h4>
+
+    <p>
+        Think of an application where one module (ie. modStatus) takes care of all states of the involved
+        <em>Modules</em>. One solution for this problem could be:
+    </p>
+    <ol>
+        <li>Wire all <em>Modules</em> together by using the same <em>Connector</em> id</li>
+        <li>As soon as a <em>Module</em> changes its state, it sends the new state to the status <em>Module</em></li>
+    </ol>
+    <p>
+        This is perfectly fine and there is nothing wrong with this solution. But there are a few things to consider:
+    </p>
+    <ul>
+        <li>
+            You have to take care, that every <em>Module</em> has the correct <em>Connector</em> id.
+        </li>
+        <li>If you are using the default <em>Connector</em>, the state changes will not only be sent to the status <em>Module</em>.
+            In fact it is sent to all connected <em>Modules</em>. Though this problem would be avoidable by using a
+            custom <em>Connector</em> that only send the changes to the status <em>Module</em>.
+        </li>
+        <li>
+            Each <em>Module</em> is responsible for notifying the status <em>Module</em> about its state changes.
+        </li>
+    </ul>
+    <p>
+        And now the solution with <em>getModuleById</em>. This solution does not need any <em>Connectors</em>, custom
+        events or something similar. Instead you only have to make sure, that every <em>Module</em> implements a <em>getStatus</em>
+        method that returns the current state. So in your observable <em>Module</em> you could write something like:
+    </p>
+
+{% highlight 'js' 'pygment' %}
+getStatus: function() {
+    return this.state;
+}
+{% endhighlight %}
+
+    <p>
+        All of the other work is done from the state <em>Module</em> itself. It loops over all <em>Modules</em> and
+        polls their current state when needed.
+    </p>
+
+{% highlight 'js' 'pygment' %}
+collectStates: function() {
+    var that = this,
+    $ctx = this.$ctx,
+    states = [];
+
+    // loop through all modules on the page
+    $('.mod', $ctx).each(function() {
+        var $mod = $(this);
+        var instance = this.getModuleById($mod.data('id'));
+
+        // check whether the module is observable
+        if($.isFunction(instance.getStatus)) {
+            // add the current state to the states array
+            states[$mod.data('id')] = instance.getStatus();
+        }
+    }
+
+    return status;
+}
+{% endhighlight %}
+
+    <p>
+        the <em>Connector</em> solution is not better or worse than the one using <em>getModuleById</em> &ndash; though
+        personally i would prefer the former for this kind of problem &ndash; its simply different and both of them have
+        their pros and cons.
+    </p>
+
+    <h3 id="getconfig">getConfig</h3>
+    <p>
+        This method simply allows you to access your config from within your Modules.
+    </p>
+{% highlight 'js' 'pygment' %}
+/**
+ * Gets the application config.
+ *
+ * @method getConfig
+ * @return {Object} the configuration object
+ */
+getConfig: function() {
+{% endhighlight %}
+
+    <h3 id="getconfigparam">getConfigParam</h3>
+    <p>
+        Unsurprisingly, getConfigParam returns the corresponding config param for the given identifier.
+    </p>
+{% highlight 'js' 'pygment' %}
+/**
+ * Gets an application config param.
+ *
+ * @method getConfigParam
+ * @param {String} name the param name
+ * @return {mixed} the appropriate configuration param
+ */
+getConfigParam: function(name) {
+{% endhighlight %}
+</div>

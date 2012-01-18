@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/bundles/terrificcomposition/fonts/Quicksand_Book-webfont.eot');
+    src: url('/bundles/terrificcomposition/fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'), url('/bundles/terrificcomposition/fonts/Quicksand_Book-webfont.woff') format('woff'), url('/bundles/terrificcomposition/fonts/Quicksand_Book-webfont.ttf') format('truetype'), url('/bundles/terrificcomposition/fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/bundles/terrificcomposition/fonts/Quicksand_Bold-webfont.eot');
+    src: url('/bundles/terrificcomposition/fonts/Quicksand_Bold-webfont.eot?#iefix') format('embedded-opentype'), url('/bundles/terrificcomposition/fonts/Quicksand_Bold-webfont.woff') format('woff'), url('/bundles/terrificcomposition/fonts/Quicksand_Bold-webfont.ttf') format('truetype'), url('/bundles/terrificcomposition/fonts/Quicksand_Bold-webfont.svg#QuicksandBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* General */
+body {
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    color: #676767;
+}
+
+.center {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.hd.center {
+    position: relative;
+}
+
+.slope {
+    background: #EDEEF0;
+    margin-top: 5em;
+    -ms-transform: skew(0, 5deg);
+    -o-transform: skew(0, 5deg);
+    -webkit-transform: skew(0, 5deg);
+    -moz-transform: skew(0, 5deg);
+    transform: skew(0, 5deg);
+}
+
+.slopeContent  {
+    padding: 8em 0 4em 0;
+    -ms-transform: skew(0, -5deg);
+    -o-transform: skew(0, -5deg);
+    -webkit-transform: skew(0, -5deg);
+    -moz-transform: skew(0, -5deg);
+    transform: skew(0, -5deg);
+}
+
+/* Headings */
+.h3, .h4, .h5, .rich h3, .rich h4, .rich h5 {
+    color: #000 ;
+}
+
+.h2, .h3, .rich h2, .rich h3 {
+    font-family: 'Quicksand', Helvetica, sans-serif;
+}
+
+.rich h3:first-child {
+    margin-top: 0;
+}
+
+.h2 {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    padding: 2.3em 1em 0.6em 100.8em; /* 0.6 =  24 / 40  */
+    margin-top: 0.2em;
+    left: -100em;
+    font-size: 2.5em; /* 40 / 16 */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.2em; /* 48 / 40 */
+    white-space: nowrap;
+    -ms-transform: skew(-22deg);
+    -o-transform: skew(-22deg);
+    -webkit-transform: skew(-22deg);
+    -moz-transform: skew(-22deg);
+    transform: skew(-22deg);
+}
+
+.h2 a, .h2 span {
+    display: block;
+    -ms-transform: skew(22deg);
+    -o-transform: skew(22deg);
+    -webkit-transform: skew(22deg);
+    -moz-transform: skew(22deg);
+    transform: skew(22deg);
+}
+
+.h3, .rich h3 {
+    font-size: 1.5em; /* 24 / 16 */
+    line-height: 1.25em; /* 30 / 24 */
+    margin: 1.25em 0 0.416666666em 0;
+}
+
+.h4, .rich h4 {
+    font-size: 1.333333em; /* 24 / 16 */
+    line-height: 1em;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.h5, .rich h5 {
+    font-size: 1.111111em; /* 20 / 16 */
+    line-height: 1.2em; /* 24 / 20 */
+    margin: 1.2em 0 0.5em 0;
+}
+
+
+/* Lists */
+ul.base, .rich ul, ol.base, .rich ol {
+    margin: 0.4em 0 1.42857143em 0;
+    font-size: 0.875em; /* 14 / 16 */
+    line-height: 1.42857143em; /* 20 / 14 */
+}
+
+ul.base ul, ol.base ol, .rich ul ul, .rich ol ol {
+    margin: 0.5em 0 0 0;
+    font-size: 1em;
+}
+
+ul.base li, ol.base li, .rich ul li, .rich ol li {
+    margin-bottom: 0.35714286em;
+}
+
+ul.base li, .rich ul li {
+    background: transparent url('/bundles/terrificcomposition/images/sprite.png') 0px 0.62em no-repeat;
+    padding-left: 22px;
+}
+
+ol.base li, .rich ol li {
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
+    background: none;
+    padding: 0 0 0 1.5em;
+}
+
+/* Text blocks */
+p.base, .rich p {
+    margin-bottom: 1.42857143em; /* 20 / 14 */
+    font-size: 0.875em; /* 14 / 16 */
+    line-height: 1.42857143em; /* 20 / 14 */
+}
+
+em.base, .rich em {
+    font-style: italic;
+    color: #696969;
+    display: inline-block;
+    padding: 0 1px 0 0;
+}
+
+mark.base, .rich mark {
+    background: #de002f;
+    color: #fff;
+    padding: 0 0.25em;
+}
+
+blockquote.base, .rich blockquote {
+
+}
+
+highlight.base, .rich .highlight {
+    margin-bottom: 1.25em; /* 20 / 15 */
+}
+
+em.base, .rich em {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+    display: inline-block;
+    padding: 0 2px;
+}
+
+/* Images */
+img.base, .rich img {
+    margin-bottom: 1.2em; /* 18 / 15 */
+}
+
+/* Links */
+a.base, .rich a {
+    display: inline-block;
+    padding: 0 0.25em;
+    color: #de002f;
+    background: transparent;
+    text-decoration: none;
+}
+
+a.base:visited .rich a:visited {
+    background: #7F7F7F;
+    color: #fff
+}
+
+a.base:hover, a.base:active, .rich a:hover, .rich a:active {
+    background: #de002f;
+    color: #fff;
+}
+
+/* Buttons */
+a.button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgba(50, 50, 50, 0.9);
+    background-image: -moz-linear-gradient(center top , rgba(50, 50, 50, 0.9) 0%, rgba(30, 30, 30, 0.9) 50%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%);
+    border: 0 none;
+    padding: 0.6em 1em 0.4em;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 0 rgba(135, 135, 135, 0.1) inset, -1px -1px 1px 0 rgba(135, 135, 135, 0.1) inset;
+    color: #FFFFFF;
+    font-family: 'Quicksand', Helvetica, sans-serif;
+    font-size: 1.125em; /* 18 / 16 */
+    line-height: 1em;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+a.button:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    background-image: -moz-linear-gradient(center top , rgba(70, 70, 70, 0.9) 0%, rgba(50, 50, 50, 0.9) 50%, rgba(40, 40, 40, 0.9) 50%, rgba(20, 20, 20, 0.9) 100%);
+    cursor: pointer;
+}
+
+a.button:active {
+    background-color: rgba(30, 30, 30, 0.9);
+    background-image: -moz-linear-gradient(center top , rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(10, 10, 10, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+
+/* Bubble */
+.bubble {
+    position: relative;
+    background: #000;
+    color: #EDEEF0;
+    padding: 0.8125em; /* 13 / 16 */
+    margin: 0.5em 0.15384615em 1.5em;
+}
+
+.bubble .arrow{
+    position: absolute;
+    left: -0.8125em;
+    bottom: -19px;
+    font-size: 0pt;
+    height: 0;
+    width: 0;
+    border: 20px solid transparent;
+    border-left-color: #000;
+    color: #000;
+}

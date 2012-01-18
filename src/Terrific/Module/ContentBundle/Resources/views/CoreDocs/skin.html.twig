@@ -1,0 +1,76 @@
+<div class="rich">
+    <p>TerrificJS <em>Skins</em> are the same to TerrificJS as OOCSS skins are to <a title=""
+                                                                                     href="https://github.com/stubbornella/oocss">OOCSS</a>.
+        They even follow the same <a title="" href="{{ path('core_docs_basics') }}#skins">skin naming conventions</a>. TerrificJS skins
+        are essentially nothing more than a <a title=""
+                                               href="http://en.wikipedia.org/wiki/Decorator_pattern#JavaScript_.28coffee_making_scenario.29">JavaScript
+            Decorator</a> &ndash; so they allow you to extend the functionality of your <a title=""
+                                                                                           href="{{ path('core_docs_module') }}">Modules</a>.
+    </p>
+
+    <p>Whilst skins are basic OOCSS components that are used quite often, TerrificJs skins are rather used sparingly.
+        However they provides you a lot of power.</p>
+
+    <h3 id="decoration">Decoration</h3>
+
+    <p>
+        TerrificJS skins are essentially nothing more than a <a title=""
+                                                                href="http://en.wikipedia.org/wiki/Decorator_pattern#JavaScript_.28coffee_making_scenario.29">JavaScript
+        Decorator</a> &ndash; so they allow you to extend the functionality of your <a title="" href="{{ path('core_docs_module') }}">Modules</a>.
+    </p>
+
+    <p>
+        <em>Skins</em> have exactly the same hooks and methods at their disposal as your TerrificJS <a title=""
+                                                                                                       href="{{ path('core_docs_module') }}">Modules</a>.
+        So in this chapter we only cover the decoration process in TerrificJS &ndash; for all other information please
+        refer to the <a title="" href="{{ path('core_docs_module') }}">Module</a> documentation.
+    </p>
+    <h4 id="basicstructure">Basic structure of a TerrificJS Skin</h4>
+    {% highlight 'js' 'pygment' %}
+(function($) {
+    /**
+     * Basic Skin implementation for the Default module.
+     *
+     * @author Remo Brunschwiler
+     * @namespace Tc.Module.Default
+     * @class Basic
+     * @extends Tc.Module
+     * @constructor
+     */
+    Tc.Module.Default.Basic = function(parent) {
+        /**
+         * override the appropriate methods from the decorated module (ie. this.get = function()).
+         * the former/original method may be called via parent.<method>()
+         */
+        this.dependencies = function() {
+            // calling parent method
+            parent.dependencies();
+        };
+
+        this.beforeBinding = function(callback) {
+            // calling parent method
+            parent.beforeBinding(function() {
+                callback();
+            });
+        };
+
+        this.onBinding = function() {
+            // calling parent method
+            parent.onBinding();
+        };
+
+        this.afterBinding = function() {
+            // calling parent method
+            parent.afterBinding();
+        };
+    };
+})(Tc.$);
+    {% endhighlight %}
+    <p>
+        Looking at the basic skin structure you see that it is really nothing more than a <a title=""
+                                                                                             href="http://en.wikipedia.org/wiki/Decorator_pattern#JavaScript_.28coffee_making_scenario.29">JavaScript
+        Decorator</a>. Like in your modules all hook methods are optional &ndash; so you don't have to implement them,
+        if you don't need them. If a hook does not exist in your skin, TerrificJS will try to call the corresponding
+        hook in your module automatically.
+    </p>
+</div>

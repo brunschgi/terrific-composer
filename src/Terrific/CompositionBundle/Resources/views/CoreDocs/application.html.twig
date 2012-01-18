@@ -1,0 +1,21 @@
+{% extends 'TerrificCompositionBundle::base.html.twig' %}
+
+{% block body %}
+{{ tc.module('Logo') }}
+<div class="center">
+    <div class="rightCol size1of3">
+        {{ tc.module('Toc', 'CoreDocs/application')}}
+    </div>
+</div>
+<div class="center hd">
+    <h2 class="h2"><span>Application</span></h2>
+</div>
+<div class="slope">
+    <div class="center slopeContent">
+        <div class="bd size2of3">
+            {{ tc.module('Content', 'CoreDocs/application')}}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
