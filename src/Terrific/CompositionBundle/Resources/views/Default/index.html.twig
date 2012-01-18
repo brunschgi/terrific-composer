@@ -1,33 +1,5 @@
 {% extends 'TerrificCompositionBundle::base.html.twig' %}
 
 {% block body %}
-<div class="center">
-{# {{ tc.module('Logo') }} #}
-{{ tc.module('ContentNavigation', 'Navigation:home') }}
-</div>
-<div class="center hd">
-    <h2 class="h2"><span>Concept</span></h2>
-</div>
-<div class="slope">
-    <div class="center slopeContent">
-        {{ tc.module('Content', 'Content/home_concept') }}
-    </div>
-</div>
-<div class="center hd">
-    <h2 class="h2"><span>Composer</span></h2>
-</div>
-<div class="slope">
-    <div class="center slopeContent">
-        {{ tc.module('Content', 'Content/home_composer') }}
-    </div>
-</div>
-<div class="center hd">
-    <h2 class="h2"><span>Integrations</span></h2>
-</div>
-<div class="slope">
-    <div class="center slopeContent">
-        {{ tc.module('Content', 'Content/home_integrations') }}
-    </div>
-</div>
-
+{{ tc.module('Logo') }}
 {% endblock %}

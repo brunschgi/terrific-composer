@@ -16,13 +16,4 @@ class DefaultController extends Controller
     {
         return array();
     }
-
-    /**
-     * @Route("/text", name="text")
-     * @Template()
-     */
-    public function textAction()
-    {
-        return array();
-    }
 }
