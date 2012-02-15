@@ -1,10 +1,9 @@
 {% extends 'TerrificCoreBundle::base.html.twig' %}
 
-{% block title %}UBS Terrific Composer{% endblock %}
+{% block title %}Terrific Composer{% endblock %}
 
 {% block css_default %}
     {% stylesheets
-        '@TerrificComposition/Resources/public/css/default.css'
         '@TerrificComposition/Resources/public/css/elements.less'
         '@TerrificComposition/Resources/public/css/static/*'
         output="css/compiled/default.css"
@@ -15,15 +14,15 @@
 
 {% block js_default %}
     {% javascripts
-      '@TerrificComposition/Resources/public/js/static/*/*'
+      '@TerrificComposition/Resources/public/js/static/*'
        output='js/compiled/statics.js'
     %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}
 {% endblock %}
 
-{# set the body class -> global module #}
-{% block body_class %}mod modLayout{% endblock %}
+{# set the body class -> e.g. global module #}
+{% block body_class %}{% endblock %}
 
 {# content that is the same on every page (ie. logo) goes into composition #}
 {% block composition %}
@@ -41,9 +40,9 @@
                 var $page = $('html'),
                     config = {
                         dependencyPath: {
-                            library: '/bundles/terrificcomposition/js/dependencies/libraries/',
-                            plugin: '/bundles/terrificcomposition/js/dependencies/plugins/',
-                            util: '/bundles/terrificcomposition/js/dependencies/utils/'
+                            library: '/js/dependencies/libraries/',
+                            plugin: '/js/dependencies/plugins/',
+                            util: '/js/dependencies/utils/'
                         }
                     },
                     application = new Tc.Application($page, config);

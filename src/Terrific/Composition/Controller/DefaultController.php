@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Composer("Application Overview")
+     * @Composer("Welcome")
      * @Route("/", name="home")
      * @Template()
      */
