@@ -10,17 +10,15 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-            new Highlight\Bundle\HighlightBundle(),
             new Terrific\CoreBundle\TerrificCoreBundle(),
-            new Terrific\CompositionBundle\TerrificCompositionBundle(),
+            new Terrific\ComposerBundle\TerrificComposerBundle(),
+
+            // project
+            new Terrific\Composition\TerrificComposition()
         );
 
         // register all terrific modules
@@ -35,11 +33,8 @@ class AppKernel extends Kernel
             $bundles[] = new $module();
         }
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Terrific\ComposerBundle\TerrificComposerBundle();
-            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-            $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+        if (in_array($this->getEnvironment(), array('dev'))) {
+            // here comes your dev only dependencies
         }
 
         return $bundles;

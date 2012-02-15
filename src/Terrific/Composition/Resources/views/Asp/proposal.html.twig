@@ -1,0 +1,20 @@
+{% extends 'TerrificComposition::base.html.twig' %}
+
+{% block body %}
+<div class="page mod">
+    {{ tc.module('Logo','small') }}
+    {{ tc.module('GlobalNavigation', 'advisory')}}
+    <div class="media">
+        {{ tc.module('LocalNavigation', 'Asp:local', null, [ '1' ], { 'class' : 'left' }) }}
+        <div class="bd">
+            {{ tc.module('PinableTabs', 'Asp/proposal', null, ['1'] )}}
+            {{ tc.module('Panel', 'Asp/money', null, null, { 'class' : 'inv', 'id' : 'money'}) }}
+            {{ tc.module('Panel', 'Asp/portfolio', null, null, { 'class' : 'inv', 'id' : 'portfolio'}) }}
+            {{ tc.module('Panel', 'Asp/client', null, null, { 'class' : 'inv', 'id' : 'client'}) }}
+            {{ tc.module('Panel', 'Asp/strategy', null, null, { 'class' : 'inv', 'id' : 'strategy'}) }}
+            {{ tc.module('Panel', 'Asp/analysis') }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

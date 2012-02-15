@@ -1,0 +1,231 @@
+/* @group Module: LocalNavigation */
+@import "../../../../../Composition/Resources/public/css/colors.less";
+
+@media screen {
+
+    .modLocalNavigation {
+        padding-right: 35px;
+    }
+
+    .modLocalNavigation {
+
+        h2 {
+            padding-left: 35px;
+            margin: 0.5em 0;
+            white-space: nowrap;
+        }
+
+        h2.min {
+            visibility: hidden;
+            width: 0;
+        }
+
+        /* List */
+        ul {
+            position: relative;
+            width: 229px;
+            background: @bg;
+        }
+
+        ul .desc {
+            padding-right: 10px;
+        }
+
+        ul.min {
+            width: 35px;
+        }
+
+        ul.min .desc {
+            display: none;
+        }
+
+        ul.open {
+            position: absolute;
+        }
+
+        li {
+            border: 0px solid @border;
+        }
+
+        li:hover {
+            z-index: 1;
+        }
+
+        li:hover, li.current {
+            position: relative;
+            background-color: @bgActive;
+        }
+        
+        li.inactive, li.inactive:hover {
+            background-color: @bg;
+        }
+
+        .process {
+           background: url("/bundles/terrificmodulelocalnavigation/images/process.png") repeat-x 0 0 transparent;
+        }
+
+        .process.current {
+            background-position: 0 -100px;
+        }
+
+        .arrow {
+            display: block;
+            position: absolute;
+            left: 10px;
+            bottom: -7px;
+            _bottom: -18px;
+            font-size: 0px;
+            height: 7px;
+            width: 14px;
+            background: url("/bundles/terrificmodulelocalnavigation/images/process.png") no-repeat 0 -200px transparent;
+        }
+
+        li:hover .arrow, li.current .arrow {
+            background-position: 0 -300px;
+            z-index: 100;
+        }
+
+        li.inactive:hover .arrow {
+            background-position: 0 -200px;
+        }
+
+        .first {
+            border-top-width: 1px;
+        }
+
+        .last {
+            border-bottom-width: 1px;
+        }
+
+        .separated {
+            border-top-width: 1px;
+            margin-top: 35px;
+        }
+
+        /* Missing Value Badge */
+        .missing {
+            display: block;
+            position: absolute;
+            background: url("/bundles/terrificmodulelocalnavigation/images/icons.png") no-repeat 0 -1000px transparent;
+            left: 18px;
+            top: 19px;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Icons */
+        .icon {
+            position: relative;
+            display: block;
+            color: @text;
+            text-decoration: none;
+            padding: 10px 0 8px 35px;
+            background: url(/bundles/terrificmodulelocalnavigation/images/icons.png) no-repeat 0 0 transparent;
+            _height: 1.25em;
+        }
+
+        .icon:hover, .current .icon {
+            color: @textActive;
+        }
+
+        .inactive .icon, .inactive .icon:hover {
+            cursor: default;
+            color: @textInactive;
+        }
+
+        .portfolio {
+            background-position: 8px 9px;
+        }
+
+        .portfolio:hover, .current .portfolio {
+            background-position: 8px -41px;
+        }
+
+        .inactive .portfolio, .inactive .portfolio:hover {
+            background-position: 8px -91px;
+        }
+
+        .proposal {
+            background-position: 8px -141px;
+        }
+
+        .proposal:hover, .current .proposal {
+            background-position: 8px -191px;
+        }
+
+        .inactive .proposal, .inactive .proposal:hover {
+            background-position: 8px -241px;
+        }
+
+        .transaction {
+            background-position: 8px -291px;
+        }
+
+        .transaction:hover, .current .transaction {
+            background-position: 8px -341px;
+        }
+
+        .inactive .transaction, .inactive .transaction:hover {
+            background-position: 8px -391px;
+        }
+
+        .print {
+            background-position: 8px -441px;
+        }
+
+        .print:hover, .current .print {
+            background-position: 8px -491px;
+        }
+
+        .inactive .print, .inactive .print:hover {
+            background-position: 8px -541px;
+        }
+
+        .save {
+            background-position: 8px -591px;
+        }
+
+        .save:hover, .current .save {
+            background-position: 8px -641px;
+        }
+
+        .inactive .save, .inactive .save:hover {
+            background-position: 8px -691px;
+        }
+
+        .archive {
+            background-position: 8px -741px;
+        }
+
+        .archive:hover, .current .archive {
+            background-position: 8px -791px;
+        }
+
+        .inactive .archive, .inactive .archive:hover {
+            background-position: 8px -841px;
+        }
+
+        /* Minimize / Maximize */
+        .toggle span {
+            display: none;
+        }
+
+        .toggle {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background: url(/bundles/terrificmodulelocalnavigation/images/icons.png) no-repeat 0 0 transparent;
+            margin: 10px 5px;
+            text-decoration: none;
+        }
+
+        .max {
+            background-position: 0 -2000px;
+        }
+
+        .min {
+            background-position: 0 -2050px;
+        }
+    }
+}
+/* @end */

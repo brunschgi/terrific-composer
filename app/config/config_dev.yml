@@ -3,11 +3,6 @@ imports:
 
 framework:
     router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
-    profiler: { only_exceptions: false }
-
-web_profiler:
-    toolbar: false
-    intercept_redirects: false
 
 monolog:
     handlers:

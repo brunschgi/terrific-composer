@@ -1,0 +1,16 @@
+{% extends 'TerrificComposition::base.html.twig' %}
+
+{% block body %}
+<div class="page">
+    {{ tc.module('Logo','small') }}
+    {{ tc.module('GlobalNavigation', 'advisory')}}
+    <div class="media">
+        {{ tc.module('LocalNavigation', 'Asp:local', null, [ '1' ], { 'class' : 'left' }) }}
+        <div class="bd">
+            {{ tc.module('Loader', 'loader', null, ['1'] )}}
+            <img src="{{ asset('bundles/terrificcomposition/images/asp/welcome.png')}}" alt="Welcome to Asset Solution" />
+        </div>
+    </div>
+</div>
+
+{% endblock %}

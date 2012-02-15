@@ -1,0 +1,324 @@
+/* General */
+@import "colors.less";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14 / 16em;
+    line-height: 18 / 14em;
+    color: @text;
+}
+
+.small {
+    font-size: 12 / 14em;
+    line-height: 18 / 12em;
+}
+
+.large {
+    font-size: 18 / 14em;
+    line-height: 24 / 18em;
+}
+
+/* Pages */
+.page {
+    width: 100%;
+}
+
+/* Headings */
+.h1, .h2, .h3, .h4, .h5, .rich h1, .rich h2, .rich h3, .rich h4, .rich h5 {
+
+}
+
+.h2, .rich h2 {
+    font-size: 18 / 14em;
+    line-height: 24 / 18em;
+    font-weight: bold;
+}
+
+.h3, .rich h3 {
+    font-size: 18 / 14em;
+    margin: 2em 0 18 / 14em;
+}
+
+/* Lists */
+ul.base, .rich ul, ol.base, .rich ol {
+    margin: 0.4em 0 1.42857143em 0;
+    font-size: 14 / 16em;
+    line-height: 20 / 14em;
+}
+
+ul.base ul, ol.base ol, .rich ul ul, .rich ol ol {
+    margin: 0.5em 0 0 0;
+    font-size: 1em;
+}
+
+ul.base li, ol.base li, .rich ul li, .rich ol li {
+    margin-bottom: 0.35714286em;
+}
+
+ul.base li, .rich ul li {
+    background: transparent url('/bundles/terrificcomposition/images/sprite.png') 0px 0.62em no-repeat;
+    padding-left: 22px;
+}
+
+ol.base li, .rich ol li {
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
+    background: none;
+    padding: 0 0 0 1.5em;
+}
+
+/* Text blocks */
+p.base, .rich p {
+    margin-bottom: 20 / 14em;
+    font-size: 14 / 16em;
+    line-height: 20 / 14em;
+}
+
+em.base, .rich em {
+    font-style: italic;
+    color: #696969;
+    display: inline-block;
+    padding: 0 1px 0 0;
+}
+
+blockquote.base, .rich blockquote {
+
+}
+
+
+/* Images */
+img.base, .rich img {
+    margin-bottom: 18 / 15em;
+}
+
+/* Links */
+a.base, a.base:link, .richText a, .richtText a:link {
+    color: #234774;
+    text-decoration: none;
+}
+
+a.base:visited, .richText a:visited {
+    color: #cecece;
+}
+
+a.base:active, .richText a:active {
+    color: #e60000;
+}
+
+a.base:hover, .richText a:hover {
+    text-decoration: underline;
+}
+
+/* Button List */
+.buttons {
+    clear: left;
+    overflow: hidden;
+}
+
+.buttons li {
+    display: block;
+    float: left;
+    padding: 0 0 3px 3px;
+    overflow: hidden;
+}
+
+/* Buttons */
+
+/* Create Button Mixin */
+.button(@position: 0, @textColor: '#222')  {
+    background: url('/bundles/terrificcomposition/images/buttons.png') no-repeat right @position - 50px transparent;
+    display: block;
+    float: left;
+    margin-right: 0;
+    padding-right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+
+    span, input, button {
+        display: block;
+        background: url('/bundles/terrificcomposition/images/buttons.png') no-repeat 0 @position - 0px transparent;
+        color: @textColor;
+        padding: 0.28571428em 0 0.28571428em 10px;
+        overflow: hidden;
+        border: none;
+    }
+
+    &:hover {
+        background-position: right @position - 150px;
+
+        span, input, button {
+            background-position: 0 @position - 100px;
+        }
+    }
+
+    &:active {
+        background-position: right @position - 250px;
+
+        span, input, button {
+            background-position: 0 @position - 200px;
+        }
+    }
+}
+
+/* Primary Button */
+.button.primary {
+    .button(0, @textActive);
+}
+
+/* Secondary Button Light -> Default */
+.button.default {
+    .button(-300, @text);
+}
+
+/* Secondary Button Dark */
+.button.dark {
+    .button(-600, @textActive);
+}
+
+/* Button Delete */
+.button.delete {
+    .button(-900, @textActive);
+}
+
+/* Button Increase */
+.button.increase {
+    .button(-1200, @textActive);
+}
+
+/* Button Harmful */
+.button.harmful {
+    .button(-1500, @text);
+}
+
+/* Small Buttons */
+.button.small, .button.iconOnly {
+    background-image: url('/bundles/terrificcomposition/images/buttonsSmall.png');
+
+    span, input, button {
+        background-image: url('/bundles/terrificcomposition/images/buttonsSmall.png');
+        padding: 0.08333333em 0 0.08333333em 10px;
+    }
+}
+
+/* Button Icons */
+.button.default, .button.harmful, .button.dark, .button.primary, .button.delete, .button.increase {
+    .icon:before {
+        display: block;
+        content: ' ';
+        float: left;
+        padding-right: 5px;
+        width: 18px;
+        height: 18px;
+        background: url('/bundles/terrificcomposition/images/buttonIconsDark.png') no-repeat 0 0 transparent;
+    }
+}
+
+.button.dark, .button.primary, .button.delete, .button.increase {
+    .icon:before {
+        background: url('/bundles/terrificcomposition/images/buttonIconsLight.png') no-repeat 0 0 transparent;
+    }
+}
+
+.button .icon.client:before, .button:hover .icon.client:before {
+    background-position: 0 0;
+}
+
+.button .icon.strategy:before, .button:hover .icon.strategy:before {
+    background-position: -50px 0;
+}
+
+.button .icon.portfolio:before, .button:hover .icon.portfolio:before {
+    background-position: -100px 0;
+}
+
+.button .icon.money:before, .button:hover .icon.money:before {
+    background-position: -150px 0;
+}
+
+.button .icon.min:before, .button:hover .icon.min:before {
+    background-position: -200px 0;
+}
+
+.button .icon.pin:before, .button:hover .icon.pin:before {
+    background-position: -250px 0;
+}
+
+.button .icon.reset:before {
+    background-position: -300px 0;
+}
+
+/* close icon right */
+.button .icon.close:before {
+    float: right;
+    padding-right: 0;
+    margin-right: 0;
+    background-position: -346px 1px;
+}
+
+.button.iconOnly .icon.close:before {
+    background-position: -349px 0;
+}
+
+/* close icon right */
+.button .icon.dropdown:before {
+    float: right;
+    padding-right: 0;
+    margin-right: 0;
+    background-position: -400px 0;
+}
+
+
+/* Icon Only Button */
+.button.iconOnly {
+    font-size: 12 / 14em;
+    line-height: 18 / 12em;
+    padding-right: 1px;
+}
+
+.button.iconOnly span {
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+}
+
+.button.iconOnly .icon:before {
+    padding-right: 0;
+    margin-left: 1px;
+}
+
+ /* Tooltip */
+.tooltipWindow {
+    display: none;
+    padding: 1em;
+    background: @bg;
+    border: 1px solid @border;
+
+    .closeTooltip {
+        position: absolute;
+        top: 0;
+        right: 1px;
+    }
+
+    & > .modLoader {
+        display: none;
+    }
+}
+
+/* Modal Overlay */
+.modalWindow {
+    padding: 25 / 14em 45 / 14em;
+    background: @bg;
+    border-color: @border;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+
+    .closeModal {
+        position: absolute;
+        top: -1em;
+        right: 0;
+    }
+
+    & > .modLoader {
+        display: none;
+    }
+}

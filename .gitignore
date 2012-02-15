@@ -1,11 +1,9 @@
 /web/bundles/
 /web/css/compiled/
-/web/css/a*
 /web/js/compiled/
 /app/bootstrap*
 /app/cache/
 /app/logs/
 /vendor/
-/app/config/parameters.ini
 .DS_Store
 .idea/

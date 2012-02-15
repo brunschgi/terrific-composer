@@ -1,0 +1,82 @@
+/* @group Module: GlobalNavigation */
+@import "../../../../../Composition/Resources/public/css/colors.less";
+
+@media screen {
+    .modGlobalNavigation {
+        background: #e5e5e5 url("/bundles/terrificcomposition/images/gradients.png") repeat-x 0 0;
+        border-bottom: 1px solid @border;
+        overflow: hidden;
+        zoom: 1;
+        margin-bottom: 2.5em;
+    }
+
+    .modGlobalNavigation {
+        ul {
+            padding-top: 10 / 14em;
+            padding-bottom: 8 / 14em;
+            overflow: hidden;
+        }
+
+        .meta, .lang {
+            float: right;
+        }
+
+        li {
+            display: block;
+            float: left;
+        }
+
+        /* Site Navigation */
+        .nav {
+            float: left;
+            font-weight: bold;
+            padding-left: 15 / 14em;
+        }
+        
+        /* Language Navigation */
+        .lang li {
+            padding-right: 10 / 14em;
+        }
+        
+        .lang a {
+            text-decoration: none;
+            color: @textLight;
+            font-size: 12 / 14em;
+            line-height: 18 / 12em;
+        }
+
+        /* Meta Navigation */
+        .meta {
+            padding-left: 5 / 14em;
+        }
+
+        .meta li {
+            padding-right: 10 / 14em;
+        }
+
+        .icon {
+            display: block;
+            background: url("/bundles/terrificmoduleglobalnavigation/images/icons.png") no-repeat 0 0 transparent;
+            width: 15px;
+            height: 18px;
+        }
+
+        .icon span {
+            position: absolute;
+            left: -9000em;
+        }
+
+        .refresh {
+            background-position: 0 2px;
+        }
+
+        .help {
+            background-position: -50px 2px;
+        }
+
+        .settings {
+            background-position: -100px 2px;
+        }
+    }
+}
+/* @end */

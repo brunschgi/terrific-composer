@@ -1,7 +1,5 @@
 imports:
     - { resource: parameters.ini }
-    - { resource: security.yml }
-    - { resource: @HighlightBundle/Resources/config/config.yml }
 
 # Symfony Configuration
 framework:
@@ -31,44 +29,3 @@ assetic:
             apply_to: "\.less$"
             file:   %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
 
-# Doctrine Configuration
-doctrine:
-    dbal:
-        driver:   %database_driver%
-        host:     %database_host%
-        port:     %database_port%
-        dbname:   %database_name%
-        user:     %database_user%
-        password: %database_password%
-        charset:  UTF8
-
-    orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
-
-# Swiftmailer Configuration
-swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
-
-jms_security_extra:
-    secure_controllers:  true
-    secure_all_services: false
-
-# Highlight Configuration
-highlight:
-    # Each provider in this list are use on after other
-    # if language given in template ins't allowed
-    providers: [ pygment ]
-
-    globals:
-        linenos: false
-        blockstyles: ""
-        cssclass: highlight
-
-    pygment:
-        linenos: false
-        blockstyles: ""
-        cssclass: pygment

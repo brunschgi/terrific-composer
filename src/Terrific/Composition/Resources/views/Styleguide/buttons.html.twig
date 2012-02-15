@@ -1,0 +1,48 @@
+{% extends 'TerrificComposition::base.html.twig' %}
+
+{% block body %}
+<div class="page">
+    {{ tc.module('Logo','small') }}
+    <h2 class="h2">Buttons</h2>
+
+    <h3 class="h3">Normal Buttons</h3>
+    <ul class="buttons">
+        <li><a href="#default" class="button default"><span>Default Button</span></a></li>
+        <li><a href="#primary" class="button primary"><span>Primary Button</span></a></li>
+        <li><a href="#secondary" class="button dark"><span>Secondary Button</span></a></li>
+        <li><a href="#delete" class="button delete"><span>Delete Button</span></a></li>
+        <li><a href="#increase" class="button increase"><span>Increase Button</span></a></li>
+        <li><a href="#harmful" class="button harmful"><span>Harmful Button</span></a></li>
+    </ul>
+
+    <h3 class="h3">Small Buttons</h3>
+    <ul class="buttons">
+        <li><a href="#default" class="button small default"><span>Default Button</span></a></li>
+        <li><a href="#primary" class="button small primary"><span>Primary Button</span></a></li>
+        <li><a href="#secondary" class="button small dark"><span>Secondary Button</span></a></li>
+        <li><a href="#delete" class="button small delete"><span>Delete Button</span></a></li>
+        <li><a href="#increase" class="button small increase"><span>Increase Button</span></a></li>
+        <li><a href="#harmful" class="button small harmful"><span>Harmful Button</span></a></li>
+    </ul>
+
+    <h3 class="h3">Icon Buttons</h3>
+    <ul class="buttons">
+        <li><a href="#default" class="button default" title=""><span class="icon client">Default Icon Button</span></a></li>
+        <li><a href="#primary" class="button primary" title=""><span class="icon client">Primary Icon Button</span></a></li>
+        <li><a href="#secondary" class="button dark" title=""><span class="icon client">Secondary Icon Button</span></a></li>
+        <li><a href="#delete" class="button delete" title=""><span class="icon client">Delete Icon Button</span></a></li>
+        <li><a href="#increase" class="button increase" title=""><span class="icon client">Increase Icon Button</span></a></li>
+        <li><a href="#harmful" class="button harmful" title=""><span class="icon client">Harmful Icon Button</span></a></li>
+    </ul>
+    <ul class="buttons">
+        <li><a href="#default" class="button default iconOnly" title=""><span class="icon money"></span></a></li>
+        <li><a href="#primary" class="button primary iconOnly" title=""><span class="icon client"></span></a></li>
+        <li><a href="#secondary" class="button dark iconOnly" title=""><span class="icon strategy"></span></a></li>
+        <li><a href="#delete" class="button delete iconOnly" title=""><span class="icon portfolio"></span></a></li>
+        <li><a href="#increase" class="button increase iconOnly" title=""><span class="icon min"></span></a></li>
+        <li><a href="#harmful" class="button harmful iconOnly" title=""><span class="icon pin"></span></a></li>
+    </ul>
+
+</div>
+
+{% endblock %}
