@@ -1,0 +1,27 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    templating: { assets_version: 1 } # increment this to invalidate caches in production
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: debug
+
+assetic:
+    filters:
+        cssmin:
+            apply_to: "\.css$"
+            file:   %kernel.root_dir%/../vendor/cssmin/cssmin.php
+
+        jsmin:
+            apply_to: "\.js"
+            file:   %kernel.root_dir%/../vendor/jsmin/JSMin.php
+            resource: %kernel.root_dir%/../vendor/bundles/Terrific/CoreBundle/Resources/config/jsmin.xml

@@ -140,73 +140,71 @@ if (ini_get('session.auto_start')) {
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link href="bundles/sensiodistribution/webconfigurator/css/install.css" rel="stylesheet" type="text/css" media="all" />
-        <title>Symfony Configuration</title>
-    </head>
-    <body>
-        <div id="symfony-wrapper">
-            <div id="symfony-content">
-                <div class="symfony-blocks-install">
-                <div class="symfony-block-logo">
-                    <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="sf_symfony" />
-                </div>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="bundles/sensiodistribution/webconfigurator/css/install.css" rel="stylesheet" type="text/css" media="all" />
+    <title>Symfony Configuration</title>
+</head>
+<body>
+<div id="symfony-wrapper">
+    <div id="symfony-content">
+        <div class="symfony-blocks-install">
+            <div class="symfony-block-logo">
+                <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="sf_symfony" />
+            </div>
 
-                <div class="symfony-block-content">
-                    <h1>Welcome!</h1>
-                    <p>Welcome to your new Symfony project.</p>
-                    <p>This script will guide you through the basic configuration of your project. You can also do the same by editing the ‘<strong>app/config/parameters.ini</strong>’ file directly.</p>
+            <div class="symfony-block-content">
+                <h1>Welcome!</h1>
+                <p>Welcome to your new Terrific Composer project.</p>
 
-                    <?php if (count($majorProblems)): ?>
-                        <h2>
-                            <span><?php echo count($majorProblems) ?> Major problems</span>
-                        </h2>
-                        <p>Major problems have been detected and <strong>must</strong> be fixed before continuing :</p>
-                        <ol>
-                            <?php foreach ($majorProblems as $problem): ?>
-                                <li><?php echo $problem; ?></li>
-                            <?php endforeach ?>
-                        </ol>
+                <?php if (count($majorProblems)): ?>
+                <h2>
+                    <span><?php echo count($majorProblems) ?> Major problems</span>
+                </h2>
+                <p>Major problems have been detected and <strong>must</strong> be fixed before continuing :</p>
+                <ol>
+                    <?php foreach ($majorProblems as $problem): ?>
+                    <li><?php echo $problem; ?></li>
+                    <?php endforeach ?>
+                </ol>
+                <?php endif ?>
+
+                <?php if (count($minorProblems)): ?>
+                <h2>Recommendations</h2>
+                <p>
+                    <?php if ($majorProblems): ?>
+                    Additionally, to
+                    <?php else: ?>
+                    To<?php endif; ?>
+                    enhance your Terrific Composer and therefore Symfony2 experience, it’s recommended that you fix the following :
+                </p>
+                <ol>
+                    <?php foreach ($minorProblems as $problem): ?>
+                    <li><?php echo $problem; ?></li>
+                    <?php endforeach; ?>
+                </ol>
+                <?php endif ?>
+
+                <?php if ($phpini): ?>
+                <a id="phpini"></a>
+                <p>*
+                    <?php if (get_cfg_var('cfg_file_path')): ?>
+                        Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo get_cfg_var('cfg_file_path') ?></strong>".
+                        <?php else: ?>
+                        To change settings, create a "<strong>php.ini</strong>".
+                        <?php endif; ?>
+                </p>
+                <?php endif; ?>
+
+                <ul class="symfony-install-continue">
+                    <?php if (!count($majorProblems)): ?>
+                    <li><a href="app_dev.php/">Go to the Welcome page</a></li>
                     <?php endif ?>
-
-                    <?php if (count($minorProblems)): ?>
-                        <h2>Recommendations</h2>
-                        <p>
-                            <?php if ($majorProblems): ?>
-                                Additionally, to
-                            <?php else: ?>
-                                To<?php endif; ?>
-                            enhance your Symfony experience, it’s recommended that you fix the following :
-                        </p>
-                        <ol>
-                            <?php foreach ($minorProblems as $problem): ?>
-                            <li><?php echo $problem; ?></li>
-                            <?php endforeach; ?>
-                        </ol>
-                    <?php endif ?>
-
-                    <?php if ($phpini): ?>
-                            <a id="phpini"></a>
-                            <p>*
-                                <?php if (get_cfg_var('cfg_file_path')): ?>
-                                    Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo get_cfg_var('cfg_file_path') ?></strong>".
-                                <?php else: ?>
-                                    To change settings, create a "<strong>php.ini</strong>".
-                                <?php endif; ?>
-                            </p>
-                    <?php endif; ?>
-
-                    <ul class="symfony-install-continue">
-                        <?php if (!count($majorProblems)): ?>
-                            <li><a href="app_dev.php/_configurator/">Configure your Symfony Application online</a></li>
-                            <li><a href="app_dev.php/">Bypass configuration and go to the Welcome page</a></li>
-                        <?php endif ?>
-                        <li><a href="config.php">Re-check configuration</a></li>
-                    </ul>
-                </div>
+                    <li><a href="config.php">Re-check configuration</a></li>
+                </ul>
             </div>
         </div>
-        <div class="version">Symfony Standard Edition</div>
-    </body>
+    </div>
+    <div class="version">Terrific Composer</div>
+</body>
 </html>

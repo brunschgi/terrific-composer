@@ -1,0 +1,22 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
+
+monolog:
+    handlers:
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: warning
+        firephp:
+            type:  firephp
+            level: warning
+
+assetic:
+    use_controller: true
+    debug: false
+
+terrific_composer:
+    toolbar: true

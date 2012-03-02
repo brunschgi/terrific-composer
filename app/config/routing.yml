@@ -1,0 +1,9 @@
+TerrificComposition:
+    resource: "@TerrificComposition/Controller/"
+    type:     annotation
+    prefix:   /
+
+TerrificComposerBundle:
+    resource: "@TerrificComposerBundle/Controller/"
+    type:     annotation
+    prefix:   /terrific/composer

@@ -1,0 +1,30 @@
+imports:
+    - { resource: parameters.ini }
+
+# Symfony Configuration
+framework:
+    secret:          %secret%
+    charset:         UTF-8
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] }
+    session:
+        default_locale: %locale%
+        auto_start:     true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    filters:
+        cssrewrite: ~
+        lessphp:
+            apply_to: "\.less$"
+            file:   %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
