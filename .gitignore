@@ -3,6 +3,7 @@
 /web/js/compiled/
 /app/cache/
 /app/logs/
+/build/
 /vendor/
 .DS_Store
 .idea/
