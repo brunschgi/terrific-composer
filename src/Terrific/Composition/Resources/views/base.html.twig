@@ -5,7 +5,7 @@
 {% block css_default %}
     {% stylesheets
         '@TerrificComposition/Resources/public/css/elements.less'
-        '@TerrificComposition/Resources/public/css/static/*'
+        '@TerrificComposition/Resources/public/css/static/*.*'
         output="css/compiled/default.css"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -14,7 +14,9 @@
 
 {% block js_default %}
     {% javascripts
-      '@TerrificComposition/Resources/public/js/static/*'
+      '@TerrificComposition/Resources/public/js/static/libraries/*.*'
+      '@TerrificComposition/Resources/public/js/static/plugins/*.*'
+      '@TerrificComposition/Resources/public/js/static/utils/*.*'
        output='js/compiled/statics.js'
     %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
@@ -40,9 +42,9 @@
                 var $page = $('html'),
                     config = {
                         dependencyPath: {
-                            library: '/js/dependencies/libraries/',
-                            plugin: '/js/dependencies/plugins/',
-                            util: '/js/dependencies/utils/'
+                            library: '/bundles/terrificcomposition/js/dependencies/libraries/',
+                            plugin: '/bundles/terrificcomposition/js/dependencies/plugins/',
+                            util: '/bundles/terrificcomposition/js/dependencies/utils/'
                         }
                     },
                     application = new Tc.Application($page, config);
