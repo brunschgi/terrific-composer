@@ -18,9 +18,6 @@
     git=https://github.com/leafo/lessphp.git
     target=/lessphp
 
-[KnpMenu]
-    git=https://github.com/KnpLabs/KnpMenu.git
-
 [symfony]
     git=http://github.com/symfony/symfony.git
     version=v2.0.10

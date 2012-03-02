@@ -1,7 +1,6 @@
 /web/bundles/
 /web/css/compiled/
 /web/js/compiled/
-/app/bootstrap*
 /app/cache/
 /app/logs/
 /vendor/
