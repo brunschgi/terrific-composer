@@ -5,8 +5,8 @@ Welcome to the Terrific Composer - a Frontend Development Framework specifically
 designed for building top-notch frontends based on the [Terrific concept](http://www.terrifically.org/).
 
 This document contains information on how to download and start using Terrific Composer.
-As Terrific Composer is built on top of Symfony2, please see the official Symfony
-[Installation chapter](http://symfony.com/doc/current/book/installation.html)
+Terrific Composer is built on top of Symfony2. If you have any troubles during installing, please see
+the official Symfony [Installation chapter](http://symfony.com/doc/current/book/installation.html)
 for a more detailed explanation.
 
 1) Download the Terrific Composer
@@ -26,8 +26,8 @@ looks when you access `http://localhost` in a browser.
 
 ### Clone the git Repository
 
-We highly recommend that you download the packaged version of this distribution.
-But if you still want to use Git, you are on your own.
+I highly recommend that you download the archive file version of Terrific Composer.
+But if you still want to use git, you are on your own.
 
 Run the following commands:
 
