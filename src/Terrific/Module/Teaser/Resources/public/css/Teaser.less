@@ -1,0 +1,37 @@
+/* @group Module: Teaser */
+@baseUrl : '/bundles/terrificmoduleteaser/img';
+
+@media screen {
+    .modTeaser {
+        overflow: hidden;
+
+        .promo {
+            margin: 0 0.9375em;
+        }
+
+        .h3 {
+            margin: 1.25em 0 0.416666666em 0;
+        }
+
+        /* icons */
+        .icon {
+            padding-bottom: 6 / 24em;
+
+            &:before {
+                content: ' ';
+                display: block;
+                float: left;
+                background: transparent url('@{baseUrl}/icons.png') no-repeat top left;
+                width: 60px;
+                height: 48px;
+                margin-top: -12px;
+                padding: 0;
+            }
+        }
+
+        .icon.transform:before {
+            background-position: 0 0;
+        }
+    }
+}
+/* @end */

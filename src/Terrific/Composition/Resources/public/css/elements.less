@@ -1,6 +1,59 @@
-/* Here comes your general element styles */
-@import "colors.less";
-
+/* Here comes your general styles */
 body {
-    color: @text;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    color: #000;
+}
+
+/* Headings */
+.h2, .h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.h2 {
+    color: #74AE00;
+    font-size: 40 / 16em;
+    letter-spacing: 0.05em;
+    line-height: 48 / 40em;
+    white-space: nowrap;
+    margin-bottom: 1em;
+}
+
+.h3 {
+    font-size: 24 / 16em;
+    line-height: 30 / 24em;
+    margin: 2em 0 1em 0;
+}
+
+/* Text Blocks */
+p.base {
+    margin-bottom: 1em;
+    font-size: 18 / 16em;
+    line-height: 24 / 18em;
+}
+
+/* Highlightings */
+em.base {
+    background: #74AE00;
+    color: #fff;
+    white-space: nowrap;
+    padding: 0 0.4em;
+}
+
+/* Links */
+a.base, .rich a {
+    display: inline-block;
+    padding: 0 0.25em;
+    color: #74AE00;
+    background: transparent;
+    text-decoration: none;
+}
+
+a.base:visited .rich a:visited {
+    background: #7F7F7F;
+    color: #fff
+}
+
+a.base:hover, a.base:active, .rich a:hover, .rich a:active {
+    background: #74AE00;
+    color: #fff;
 }

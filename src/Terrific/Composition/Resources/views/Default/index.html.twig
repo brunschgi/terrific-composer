@@ -3,5 +3,47 @@
 {% block title %}Terrific Composer - Welcome{% endblock %}
 
 {% block body %}
-Welcome to Terrific Composer
+<div class="page">
+    {{ tc.module('Intro') }} <!-- this takes the template with the same name (intro.html.twig) implicitly -->
+    <h2 class="h2">Play around</h2>
+    <p class="base">Open the current view <em class="base">/src/Terrific/Composition/Resources/views/Default/index.html.twig</em> and fool around with Mr. Terrific and his friends.</p>
+    <div class="line">
+        <div class="unit size1of3">
+            {{ tc.module('Hero', 'mrterrific')}} <!-- this renders the mrterrific template from the Hero Module (/src/Terrific/Module/Hero/Resources/views/mrterrific.html.twig) -->
+        </div>
+        <div class="unit size1of3">
+            {{ tc.module('Teaser', 'decorate')}} <!-- decorate template of the Teaser Module -->
+        </div>
+        <div class="lastUnit">
+            {{ tc.module('Hero', 'mrterrific', [ 'Stealth' ])}} <!-- the 3rd param is the Skins array, ie. Mr. Terrific is getting decorated with the Stealth Skin -->
+        </div>
+    </div>
+    <h3 class="h3">Get more Superheroes with different templates</h3>
+    <p class="base">The 2nd param of the <em class="base">tc.module(..)</em> macro allows you to have different templates for the same module.</p>
+    <div class="line">
+        <div class="unit size1of3">
+            {{ tc.module('Hero', 'mrterrific')}} <!-- mrterrific template -->
+        </div>
+        <div class="unit size1of3">
+            {{ tc.module('Hero', 'batman')}} <!-- batman template -->
+        </div>
+        <div class="lastUnit">
+            {{ tc.module('Hero', 'spiderman')}} <!-- spiderman template -->
+        </div>
+    </div>
+    <h3 class="h3">Let them talk with each other</h3>
+    <p class="base">Modules are able to communicate with each other by using <a class="base" href="http://www.terrifically.org/api/connector">connectors</a></p>
+    <div class="line">
+        <div class="unit size1of3">
+            {{ tc.module('Hero', 'mrterrific', ['Stealth'], ['1'])}}  <!-- the 4th param is an array with communication channel ids, ie. all modules with the same id can talk with each other -->
+        </div>
+        <div class="unit size1of3">
+            {{ tc.module('Hero', 'batman', ['Stealth'], ['1'])}}
+        </div>
+        <div class="lastUnit">
+            {{ tc.module('Hero', 'spiderman', ['Stealth'], ['1'])}}
+        </div>
+    </div>
+
+</div>
 {% endblock %}
