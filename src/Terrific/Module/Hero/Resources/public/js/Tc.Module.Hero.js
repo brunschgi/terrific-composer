@@ -56,12 +56,18 @@
          * @return void
          */
         onBinding: function() {
-            var $ctx = this.$ctx;
+            var $ctx = this.$ctx,
+                that = this;
 
             // bind the submit event on the form
             $('form', $ctx).bind('submit', function() {
-                // write the current message in the bubble
-                $('.bubble', $ctx).text($('.message', $ctx).val());
+                var name = $('pre', $ctx).data('name'),
+                    message = $('.message', $ctx).val();
+
+                // write the current message in the bubble and notify the others
+                that.fire('message', { name : name, message : message}, function() {
+                    $('.bubble', $ctx).text(message);
+                });
 
                 return false;
             })
@@ -78,6 +84,20 @@
 
             // trigger the first submit to write the default message in the bubble
             $('form', $ctx).trigger('submit');
+        },
+
+
+        /**
+         * Handles the incoming messages from the other superheroes
+         */
+        onMessage: function(data) {
+            var $ctx = this.$ctx;
+
+            data = data || {};
+
+            if(data.name && data.message) {
+                $('.bubble', $ctx).text(data.name + ' said: ' + data.message);
+            }
         }
         
     });

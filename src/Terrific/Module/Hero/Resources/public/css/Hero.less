@@ -5,25 +5,45 @@
     .modHero {
         position: relative;
         height: 30em;
-        margin: 1em 0;
+        padding-top: 2em;
 
         pre {
             color: #000;
             position: absolute;
-            top: 10em;
-            font-size: 4pt;
+            top: 14em;
+            font-size: 6pt;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 0;
             line-height: 4pt;
+            font-family: monospace;
         }
 
         .bubble {
+            font-size: 14 / 16em;
             overflow: hidden;
             position: absolute;
-            top: 6.6em;
-            left: 8em;
+            top: 11.0em;
+            left: 8.8em;
             width: 9em;
             height: 5.5em;
+        }
+
+        input {
+            border: 1px solid #222222;
+            font-size: 18 / 16em;
+            padding: 4px 8px;
+            width: 10em;
+        }
+
+        input[type=submit] {
+            background: #74AE00;
+            color: #fff;
+            border: none;
+            width: auto;
+
+            &:hover {
+                background: #222;
+            }
         }
     }
 }

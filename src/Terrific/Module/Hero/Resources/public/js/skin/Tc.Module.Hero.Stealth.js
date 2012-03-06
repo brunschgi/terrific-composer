@@ -29,16 +29,12 @@
 
             // binding the stealth mode on / off events
             $('.on', $ctx).bind('click', function() {
-                that.fire('activateStealthMode', null, function() {
-                    that.onActivateStealthMode();
-                });
+                that.activateStealthMode();
                 return false;
             });
 
             $('.off', $ctx).bind('click', function() {
-                that.fire('deactivateStealthMode', null, function() {
-                    that.onDeactivateStealthMode();
-                });
+                that.deactivateStealthMode();
                 return false;
             });
 
@@ -46,7 +42,7 @@
             parent.onBinding();
         };
 
-        this.onActivateStealthMode = function() {
+        this.activateStealthMode = function() {
             var that = this,
                 $hero = $('pre', this.$ctx);
 
@@ -55,7 +51,7 @@
             });
         };
 
-        this.onDeactivateStealthMode = function() {
+        this.deactivateStealthMode = function() {
             var that = this,
                 $hero = $('pre', this.$ctx)
 

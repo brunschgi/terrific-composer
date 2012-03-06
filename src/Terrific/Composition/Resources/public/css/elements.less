@@ -4,43 +4,47 @@ body {
     color: #000;
 }
 
+/* Indentations */
+.page {
+    margin-bottom: 3em;
+}
+
+.block {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 7px solid #222;
+}
+
 /* Headings */
-.h2, .h3 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.h2 {
-    color: #74AE00;
-    font-size: 40 / 16em;
-    letter-spacing: 0.05em;
-    line-height: 48 / 40em;
-    white-space: nowrap;
-    margin-bottom: 1em;
-}
-
 .h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 24 / 16em;
     line-height: 30 / 24em;
     margin: 2em 0 1em 0;
+    padding-top: 2em;
+    border-top: 7px solid #222;
 }
 
 /* Text Blocks */
 p.base {
-    margin-bottom: 1em;
     font-size: 18 / 16em;
     line-height: 24 / 18em;
 }
 
+.spread {
+     width: 31em;
+}
+
 /* Highlightings */
 em.base {
-    background: #74AE00;
-    color: #fff;
+    font-family: monospace;
     white-space: nowrap;
-    padding: 0 0.4em;
+    padding: 0 0.2em;
+    color: #74AE00;
 }
 
 /* Links */
-a.base, .rich a {
+a.base {
     display: inline-block;
     padding: 0 0.25em;
     color: #74AE00;
@@ -48,12 +52,58 @@ a.base, .rich a {
     text-decoration: none;
 }
 
-a.base:visited .rich a:visited {
+a.base:visited {
     background: #7F7F7F;
     color: #fff
 }
 
-a.base:hover, a.base:active, .rich a:hover, .rich a:active {
+a.base:hover, a.base:active {
     background: #74AE00;
     color: #fff;
+}
+
+/* Lists */
+ol.base {
+    li {
+        padding-left: 30px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 20 / 16em;
+        line-height: 1.2em;
+        min-height: 70 / 24em;
+        padding-top: 20px;
+    }
+
+    li:before {
+        clear: left;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 24 / 16em;
+        line-height: 1.5em;
+        height: 48px;
+        width: 48px;
+        display: block;
+        float: left;
+        text-align: center;
+        -moz-border-radius: 48px;
+        -webkit-border-radius: 48px;
+        -ms-border-radius: 48px;
+        -o-border-radius: 48px;
+        border-radius: 48px;
+        background: #222;
+        margin-right: 0.4em;
+        font-weight: 700;
+        color: white;
+        position: relative;
+        top: -12px;
+    }
+
+    .first:before {
+        content: '1';
+    }
+
+    .second:before {
+        content: '2';
+    }
+    .third:before {
+        content: '3';
+    }
 }
