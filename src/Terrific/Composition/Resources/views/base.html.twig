@@ -4,9 +4,9 @@
 
 {% block css_default %}
     {% stylesheets
-        '@TerrificComposition/Resources/public/css/default.less'
-        '@TerrificComposition/Resources/public/css/elements.less'
-        '@TerrificComposition/Resources/public/css/static/*.*'
+        'bundles/terrificcomposition/css/default.less'
+        'bundles/terrificcomposition/css/elements.less'
+        'bundles/terrificcomposition/css/static/*.*'
         output="css/compiled/default.css"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -15,9 +15,9 @@
 
 {% block js_default %}
     {% javascripts
-      '@TerrificComposition/Resources/public/js/static/libraries/*.*'
-      '@TerrificComposition/Resources/public/js/static/plugins/*.*'
-      '@TerrificComposition/Resources/public/js/static/utils/*.*'
+      'bundles/terrificcomposition/js/static/libraries/*.*'
+      'bundles/terrificcomposition/js/static/plugins/*.*'
+      'bundles/terrificcomposition/js/js/static/utils/*.*'
        output='js/compiled/statics.js'
     %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
@@ -43,9 +43,9 @@
                 var $page = $('html'),
                     config = {
                         dependencyPath: {
-                            library: '/bundles/terrificcomposition/js/dependencies/libraries/',
-                            plugin: '/bundles/terrificcomposition/js/dependencies/plugins/',
-                            util: '/bundles/terrificcomposition/js/dependencies/utils/'
+                            library: '{{ app.request.basepath }}/bundles/terrificcomposition/js/dependencies/libraries/',
+                            plugin: '{{ app.request.basepath }}/bundles/terrificcomposition/js/dependencies/plugins/',
+                            util: '{{ app.request.basepath }}/bundles/terrificcomposition/js/dependencies/utils/'
                         }
                     },
                     application = new Tc.Application($page, config);
