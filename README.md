@@ -52,7 +52,7 @@ Make sure you pass the "Mandatory requirements" section. If you get any warnings
 recommendations there, fix these now before moving on.
 if you want you can skip the warnings or recommendations in the "Optional checks" section.
 
-### b) Install the Vendor Libraries
+### b) For Git Installers: Get the Vendor Libraries
 
 If you installed the Terrific Composer via git, then you need to download all of the necessary
 vendor libraries. If you're not sure if you need to do this, check to see if you have a ``vendor/`` directory.
