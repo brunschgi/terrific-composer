@@ -20,3 +20,6 @@ assetic:
 
 terrific_composer:
     toolbar: true
+
+terrific_core:
+    copy_images: true

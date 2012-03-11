@@ -4,9 +4,9 @@
 
 {% block css_default %}
     {% stylesheets
-        'bundles/terrificcomposition/css/default.less'
-        'bundles/terrificcomposition/css/elements.less'
-        'bundles/terrificcomposition/css/static/*.*'
+        '@TerrificComposition/Resources/public/css/default.less'
+        '@TerrificComposition/Resources/public/css/elements.less'
+        '@TerrificComposition/Resources/public/css/static/*.*'
         output="css/compiled/default.css"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -15,9 +15,9 @@
 
 {% block js_default %}
     {% javascripts
-      'bundles/terrificcomposition/js/static/libraries/*.*'
-      'bundles/terrificcomposition/js/static/plugins/*.*'
-      'bundles/terrificcomposition/js/js/static/utils/*.*'
+      '@TerrificComposition/Resources/public/js/static/libraries/*.*'
+      '@TerrificComposition/Resources/public/js/static/plugins/*.*'
+      '@TerrificComposition/Resources/public/js/static/utils/*.*'
        output='js/compiled/statics.js'
     %}
         <script src="{{ asset_url }}" type="text/javascript"></script>

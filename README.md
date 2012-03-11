@@ -69,7 +69,7 @@ it or download the archive of Terrific Composer from (http://www.terrifically.or
 Congratulations! You're now ready to use Terrific Composer. If you've unzipped Terrific Composer
 in the web root of your computer, then you should be able to access the welcome page via:
 
-    http://localhost/terrific-composer/web/
+    http://localhost/terrific-composer/web/app_dev.php
 
 
 3) Learn about Terrific Composer!
@@ -84,7 +84,5 @@ which will take you through all the basic features of Symfony2
 
 Once you're feeling good, you can move onto reading the official
 [Symfony2 book](http://symfony.com/doc/current/).
-
-The Terrific Composer documentation is coming soon…
 
 Enjoy!
