@@ -2,26 +2,32 @@
 
 {% block title %}Terrific Composer{% endblock %}
 
-{% block css_default %}
+{% block styles %}
     {% stylesheets
-        '@TerrificComposition/Resources/public/css/default.less'
+        '@TerrificComposition/Resources/public/css/reset.less'
+        '@TerrificComposition/Resources/public/css/grid.less'
         '@TerrificComposition/Resources/public/css/elements.less'
-        '@TerrificComposition/Resources/public/css/static/*.*'
         output="css/compiled/default.css"
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+
+    {# styles from parent (terrific core) layout #}
+    {{ parent() }}
 {% endblock %}
 
-{% block js_default %}
-    {% javascripts
-      '@TerrificComposition/Resources/public/js/static/libraries/*.*'
-      '@TerrificComposition/Resources/public/js/static/plugins/*.*'
-      '@TerrificComposition/Resources/public/js/static/utils/*.*'
-       output='js/compiled/statics.js'
-    %}
-        <script src="{{ asset_url }}" type="text/javascript"></script>
-    {% endjavascripts %}
+{% block scripts %}
+    {# here comes your scripts
+        {% javascripts
+          '@TerrificComposition/Resources/public/js/*.*'
+           output='js/compiled/statics.js'
+        %}
+            <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+    #}
+
+    {# scripts from parent (terrific core) layout #}
+    {{ parent() }}
 {% endblock %}
 
 {# set the body class -> e.g. global module #}
@@ -33,6 +39,7 @@
 {# your page content goes into body #}
 {% block body %}
 {% endblock %}
+
 {% endblock %}
 
 {# terrificjs bootstrap #}
