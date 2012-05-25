@@ -50,9 +50,8 @@
                 var $page = $('html'),
                     config = {
                         dependencyPath: {
-                            library: '{{ app.request.basepath }}/js/dependencies/libraries/',
-                            plugin: '{{ app.request.basepath }}/js/dependencies/plugins/',
-                            util: '{{ app.request.basepath }}/js/dependencies/utils/'
+                            js: '{{ app.request.basepath }}/js/dependencies/',
+                            css: '{{ app.request.basepath }}/css/dependencies/'
                         }
                     },
                     application = new Tc.Application($page, config);

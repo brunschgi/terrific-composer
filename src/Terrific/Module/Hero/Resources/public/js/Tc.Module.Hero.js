@@ -23,41 +23,19 @@
 	      	// call base constructor
 	        this._super($ctx, sandbox, modId);
 	    },
-    
+
         /**
-         * Hook function to load the module specific dependencies.
+         * Hook function to do all of your module stuff.
          *
-         * @method dependencies
+         * @method on
          * @return void
          */
-        dependencies: function() {
-            // nothing to do here -> please delete unused hooks in real world examples due to performance reasons
-        },
-        
-        /**
-         * Hook function to do module specific stuff before binding the events (i.e. fetching some data).
-         *
-         * @method beforeBinding
-         * @param {Function} callback the callback function which must be called at the end
-         * @return void
-         */
-        beforeBinding: function(callback) {
-            var $ctx = this.$ctx;
+        on: function(callback) {
+            var $ctx = this.$ctx,
+                that = this;
 
             // extract the name and provide the default greeting
             $('.message', $ctx).val('Hi, I am ' + $('pre', $ctx).data('name'));
-            callback();
-        },
-        
-        /**
-         * Hook function to bind the module specific events.
-         *
-         * @method onBinding
-         * @return void
-         */
-        onBinding: function() {
-            var $ctx = this.$ctx,
-                that = this;
 
             // bind the submit event on the form
             $('form', $ctx).bind('submit', function() {
@@ -70,16 +48,18 @@
                 });
 
                 return false;
-            })
+            });
+
+            callback();
         },
-        
+
         /**
-         * Hook function to do module specific stuff after binding the events (i.e. triggering some events).
+         * Hook function to trigger your events.
          *
-         * @method afterBinding
+         * @method after
          * @return void
          */
-        afterBinding: function() {
+        after: function() {
             var $ctx = this.$ctx;
 
             // trigger the first submit to write the default message in the bubble

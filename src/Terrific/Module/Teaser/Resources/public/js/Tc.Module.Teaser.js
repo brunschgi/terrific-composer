@@ -23,46 +23,25 @@
 	      	// call base constructor
 	        this._super($ctx, sandbox, modId);
 	    },
-    
+
         /**
-         * Hook function to load the module specific dependencies.
+         * Hook function to do all of your module stuff.
          *
-         * @method dependencies
+         * @method on
          * @return void
          */
-        dependencies: function() {
+        on: function() {
+
         },
-        
+
         /**
-         * Hook function to do module specific stuff before binding the events (i.e. fetching some data).
+         * Hook function to trigger your events.
          *
-         * @method beforeBinding
-         * @param {Function} callback the callback function which must be called at the end
+         * @method after
          * @return void
          */
-        beforeBinding: function(callback) {
-            callback();
-        },
-        
-        /**
-         * Hook function to bind the module specific events.
-         *
-         * @method onBinding
-         * @return void
-         */
-        onBinding: function() {
-        
-        },
-        
-        /**
-         * Hook function to do module specific stuff after binding the events (i.e. triggering some events).
-         *
-         * @method afterBinding
-         * @return void
-         */
-        afterBinding: function() {
-        
+        after: function() {
+
         }
-        
     });
 })(Tc.$);
