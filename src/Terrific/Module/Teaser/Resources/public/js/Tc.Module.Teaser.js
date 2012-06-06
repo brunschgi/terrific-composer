@@ -17,21 +17,22 @@
 	 	 * @constructor
 	     * @param {jQuery} $ctx the jquery context
 	     * @param {Sandbox} sandbox the sandbox to get the resources from
-	     * @param {String} modId the unique module id
+	     * @param {Number} id the unique module id
 		 */
-		init: function($ctx, sandbox, modId) {
+		init: function($ctx, sandbox, id) {
 	      	// call base constructor
-	        this._super($ctx, sandbox, modId);
+	        this._super($ctx, sandbox, id);
 	    },
 
         /**
          * Hook function to do all of your module stuff.
          *
          * @method on
+         * @param {Function} callback function
          * @return void
          */
-        on: function() {
-
+        on: function(callback) {
+            callback();
         },
 
         /**

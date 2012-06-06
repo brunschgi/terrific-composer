@@ -29,3 +29,6 @@ assetic:
         lessphp:
             apply_to: "\.less$"
             file:   %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
+
+terrific_composer:
+    composition_bundles: ['%kernel.root_dir%/../src/Terrific/Composition']
