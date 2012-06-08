@@ -33,7 +33,7 @@
          */
         on: function(callback) {
             var $ctx = this.$ctx,
-                that = this;
+                self = this;
 
             // extract the name and provide the default greeting
             $('.message', $ctx).val('Hi, I am ' + $('pre', $ctx).data('name'));
@@ -44,7 +44,7 @@
                     message = $('.message', $ctx).val();
 
                 // write the current message in the bubble and notify the others
-                that.fire('message', { name : name, message : message}, function() {
+                self.fire('message', { name : name, message : message}, function() {
                     $('.bubble', $ctx).text(message);
                 });
 

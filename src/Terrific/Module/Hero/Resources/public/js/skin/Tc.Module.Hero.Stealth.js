@@ -14,7 +14,7 @@
          * the former/original method may be called via parent.<method>()
          */
         this.on = function(callback) {
-            var that = this,
+            var self = this,
                 $ctx = this.$ctx;
 
             // create mode chooser markup
@@ -22,12 +22,12 @@
 
             // binding the stealth mode on / off events
             $('.on', $ctx).bind('click', function() {
-                that.activateStealthMode();
+                self.activateStealthMode();
                 return false;
             });
 
             $('.off', $ctx).bind('click', function() {
-                that.deactivateStealthMode();
+                self.deactivateStealthMode();
                 return false;
             });
 
@@ -36,7 +36,7 @@
         };
 
         this.activateStealthMode = function() {
-            var that = this,
+            var self = this,
                 $hero = $('pre', this.$ctx);
 
             $hero.hide(100).show(100).hide(100).show(100).animate({ opacity : 0.2 }, 500, function() {
@@ -45,8 +45,8 @@
         };
 
         this.deactivateStealthMode = function() {
-            var that = this,
-                $hero = $('pre', this.$ctx)
+            var self = this,
+                $hero = $('pre', this.$ctx);
 
             $hero.show(200).hide(200).show(200).animate({ opacity : 1 }, 500, function() {
                 $hero.hide(100).show(100).hide(100).show(100);
