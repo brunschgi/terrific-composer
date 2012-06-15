@@ -28,7 +28,8 @@ assetic:
             resource: %kernel.root_dir%/../vendor/bundles/Terrific/CoreBundle/Resources/config/terrificrewrite.xml
         lessphp:
             apply_to: "\.less$"
-            file:   %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
+            file: %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
 
 terrific_composer:
-    composition_bundles: ['%kernel.root_dir%/../src/Terrific/Composition']
+   composition_bundles: [@TerrificComposition]
+   module_layout: @TerrificComposition::base.html.twig
