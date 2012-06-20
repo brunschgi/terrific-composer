@@ -1,4 +1,7 @@
-(function($) {
+(function ($) {
+
+    "use strict";
+
     /**
      * Hero module implementation.
      *
@@ -8,21 +11,21 @@
      * @extends Tc.Module
      */
     Tc.Module.Hero = Tc.Module.extend({
-		
-		/**
-		 * Initializes the Hero module.
-		 * 
-		 * @method init
-		 * @return {void}
-	 	 * @constructor
-	     * @param {jQuery} $ctx the jquery context
-	     * @param {Sandbox} sandbox the sandbox to get the resources from
-	     * @param {Number} id the unique module id
-		 */
-		init: function($ctx, sandbox, id) {
-	      	// call base constructor
-	        this._super($ctx, sandbox, id);
-	    },
+
+        /**
+         * Initializes the Hero module.
+         *
+         * @method init
+         * @return {void}
+         * @constructor
+         * @param {jQuery} $ctx the jquery context
+         * @param {Sandbox} sandbox the sandbox to get the resources from
+         * @param {Number} id the unique module id
+         */
+        init:function ($ctx, sandbox, id) {
+            // call base constructor
+            this._super($ctx, sandbox, id);
+        },
 
         /**
          * Hook function to do all of your module stuff.
@@ -31,7 +34,7 @@
          * @param {Function} callback function
          * @return void
          */
-        on: function(callback) {
+        on:function (callback) {
             var $ctx = this.$ctx,
                 self = this;
 
@@ -39,12 +42,12 @@
             $('.message', $ctx).val('Hi, I am ' + $('pre', $ctx).data('name'));
 
             // bind the submit event on the form
-            $('form', $ctx).bind('submit', function() {
+            $('form', $ctx).bind('submit', function () {
                 var name = $('pre', $ctx).data('name'),
                     message = $('.message', $ctx).val();
 
                 // write the current message in the bubble and notify the others
-                self.fire('message', { name : name, message : message}, function() {
+                self.fire('message', { name:name, message:message}, function () {
                     $('.bubble', $ctx).text(message);
                 });
 
@@ -60,7 +63,7 @@
          * @method after
          * @return void
          */
-        after: function() {
+        after:function () {
             var $ctx = this.$ctx;
 
             // trigger the first submit to write the default message in the bubble
@@ -71,15 +74,15 @@
         /**
          * Handles the incoming messages from the other superheroes
          */
-        onMessage: function(data) {
+        onMessage:function (data) {
             var $ctx = this.$ctx;
 
             data = data || {};
 
-            if(data.name && data.message) {
+            if (data.name && data.message) {
                 $('.bubble', $ctx).text(data.name + ' said: ' + data.message);
             }
         }
-        
+
     });
 })(Tc.$);
