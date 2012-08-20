@@ -34,6 +34,13 @@ class apache {
         subscribe => File["main-vhost.conf", "httpd.conf", "mod_rewrite", "mod_actions", "mod_expires", "mod_fastcgi"]
     }
 
+    service { "php5-fpm":
+        ensure => running,
+        require => Package["php5-fpm"],
+        subscribe => File["php-fpm.conf"]
+    }
+
+
     file { "main-vhost.conf":
         path => '/etc/apache2/conf.d/main-vhost.conf',
         ensure => file,
@@ -121,7 +128,8 @@ class terrific {
         command => "php bin/vendors install",
         path => ["/bin", "/usr/bin"],
         creates => "/vagrant/vendor",
-        require => Package["php5-cli", "php5-fpm", "git"]
+        require => Package["php5-cli", "php5-fpm", "git"],
+        notify  => Service["php5-fpm"],
     }
 
 }
