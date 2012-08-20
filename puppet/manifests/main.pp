@@ -97,6 +97,11 @@ class php53 {
         require => Package["apache2-mpm-worker"]
     }
 
+     package { "php5-cli":
+        ensure => present,
+        require => Package["php5-fpm"]
+    }
+
     file { "php-fpm.conf":
         path => "/etc/php5/fpm/php-fpm.conf",
         ensure => file,
@@ -109,14 +114,34 @@ class php53 {
 
 }
 
+class terrific {
+
+    exec { "vendorsInstall":
+        cwd => "/vagrant",
+        command => "php bin/vendors install",
+        path => ["/bin", "/usr/bin"],
+        creates => "/vagrant/vendors",
+        require => Package["php5-cli", "git"]
+    }
+
+}
+
 class groups {
     group { "puppet":
         ensure => present,
     }
 }
 
+class git {
+     package { "git":
+        ensure => present,
+        require => Package["git"]
+    }
+}
 
 include apt_update
+include git
 include apache
 include php53
 include groups
+include terrific
