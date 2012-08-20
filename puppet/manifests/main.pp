@@ -120,8 +120,8 @@ class terrific {
         cwd => "/vagrant",
         command => "php bin/vendors install",
         path => ["/bin", "/usr/bin"],
-        creates => "/vagrant/vendors",
-        require => Package["php5-cli", "git"]
+        creates => "/vagrant/vendor",
+        require => Package["php5-cli", "php5-fpm", "git"]
     }
 
 }
@@ -135,7 +135,6 @@ class groups {
 class git {
      package { "git":
         ensure => present,
-        require => Package["git"]
     }
 }
 
