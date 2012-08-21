@@ -104,7 +104,17 @@ class php53 {
         require => Package["apache2-mpm-worker"]
     }
 
-     package { "php5-cli":
+    package { "php5-cli":
+        ensure => present,
+        require => Package["php5-fpm"]
+    }
+
+    package { "php5-apc":
+        ensure => present,
+        require => Package["php5-fpm"]
+    }
+
+    package { "php5-intl":
         ensure => present,
         require => Package["php5-fpm"]
     }
