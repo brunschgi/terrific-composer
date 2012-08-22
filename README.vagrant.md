@@ -1,10 +1,10 @@
-# Using Terrific Composer with Vagrat
+# Using Terrific Composer with Vagrant
 
-## Get Vagrant, if you don't have already
+## Get Vagrant & VirtualBox, if you don't have already
 
-From http://vagrantup.com/
+From http://vagrantup.com/ & https://www.virtualbox.org/wiki/Downloads
 
-## Get the code and got to the terrific-composer directory
+## Get the code and go to the terrific-composer directory
 
 See https://github.com/brunschgi/terrific-composer/blob/master/README.md for the details
 
