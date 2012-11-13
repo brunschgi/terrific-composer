@@ -13,7 +13,7 @@ namespace Symfony\Component\DependencyInjection
 interface ContainerAwareInterface
 {
     
-    function setContainer(ContainerInterface $container = null);
+    public function setContainer(ContainerInterface $container = null);
 }
 }
  
@@ -33,37 +33,37 @@ interface ContainerInterface
     const SCOPE_PROTOTYPE                = 'prototype';
 
     
-    function set($id, $service, $scope = self::SCOPE_CONTAINER);
+    public function set($id, $service, $scope = self::SCOPE_CONTAINER);
 
     
-    function get($id, $invalidBehavior = self::EXCEPTION_ON_INVALID_REFERENCE);
+    public function get($id, $invalidBehavior = self::EXCEPTION_ON_INVALID_REFERENCE);
 
     
-    function has($id);
+    public function has($id);
 
     
-    function getParameter($name);
+    public function getParameter($name);
 
     
-    function hasParameter($name);
+    public function hasParameter($name);
 
     
-    function setParameter($name, $value);
+    public function setParameter($name, $value);
 
     
-    function enterScope($name);
+    public function enterScope($name);
 
     
-    function leaveScope($name);
+    public function leaveScope($name);
 
     
-    function addScope(ScopeInterface $scope);
+    public function addScope(ScopeInterface $scope);
 
     
-    function hasScope($name);
+    public function hasScope($name);
 
     
-    function isScopeActive($name);
+    public function isScopeActive($name);
 }
 }
  
@@ -209,7 +209,7 @@ class Container implements ContainerInterface
         $ids = array();
         $r = new \ReflectionClass($this);
         foreach ($r->getMethods() as $method) {
-            if (preg_match('/^get(.+)Service$/', $method->getName(), $match)) {
+            if (preg_match('/^get(.+)Service$/', $method->name, $match)) {
                 $ids[] = self::underscore($match[1]);
             }
         }
@@ -315,13 +315,13 @@ class Container implements ContainerInterface
     }
 
     
-    static public function camelize($id)
+    public static function camelize($id)
     {
         return preg_replace_callback('/(^|_|\.)+(.)/', function ($match) { return ('.' === $match[1] ? '_' : '').strtoupper($match[2]); }, $id);
     }
 
     
-    static public function underscore($id)
+    public static function underscore($id)
     {
         return strtolower(preg_replace(array('/([A-Z]+)([A-Z][a-z])/', '/([a-z\d])([A-Z])/'), array('\\1_\\2', '\\1_\\2'), strtr($id, '_', '.')));
     }
@@ -344,7 +344,7 @@ interface HttpKernelInterface
     const SUB_REQUEST = 2;
 
     
-    function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true);
+    public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true);
 }
 }
  
@@ -363,52 +363,52 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 interface KernelInterface extends HttpKernelInterface, \Serializable
 {
     
-    function registerBundles();
+    public function registerBundles();
 
     
-    function registerContainerConfiguration(LoaderInterface $loader);
+    public function registerContainerConfiguration(LoaderInterface $loader);
 
     
-    function boot();
+    public function boot();
 
     
-    function shutdown();
+    public function shutdown();
 
     
-    function getBundles();
+    public function getBundles();
 
     
-    function isClassInActiveBundle($class);
+    public function isClassInActiveBundle($class);
 
     
-    function getBundle($name, $first = true);
+    public function getBundle($name, $first = true);
 
     
-    function locateResource($name, $dir = null, $first = true);
+    public function locateResource($name, $dir = null, $first = true);
 
     
-    function getName();
+    public function getName();
 
     
-    function getEnvironment();
+    public function getEnvironment();
 
     
-    function isDebug();
+    public function isDebug();
 
     
-    function getRootDir();
+    public function getRootDir();
 
     
-    function getContainer();
+    public function getContainer();
 
     
-    function getStartTime();
+    public function getStartTime();
 
     
-    function getCacheDir();
+    public function getCacheDir();
 
     
-    function getLogDir();
+    public function getLogDir();
 }
 }
  
@@ -433,7 +433,6 @@ use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
 use Symfony\Component\HttpKernel\DependencyInjection\AddClassesToCachePass;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension as DIExtension;
 use Symfony\Component\HttpKernel\Debug\ErrorHandler;
 use Symfony\Component\HttpKernel\Debug\ExceptionHandler;
 use Symfony\Component\Config\Loader\LoaderResolver;
@@ -456,7 +455,12 @@ abstract class Kernel implements KernelInterface
     protected $startTime;
     protected $classes;
 
-    const VERSION = '2.0.13';
+    const VERSION         = '2.0.17';
+    const VERSION_ID      = '20017';
+    const MAJOR_VERSION   = '2';
+    const MINOR_VERSION   = '0';
+    const RELEASE_VERSION = '17';
+    const EXTRA_VERSION   = '';
 
     
     public function __construct($environment, $debug)
@@ -663,7 +667,7 @@ abstract class Kernel implements KernelInterface
     {
         if (null === $this->rootDir) {
             $r = new \ReflectionObject($this);
-            $this->rootDir = dirname($r->getFileName());
+            $this->rootDir = str_replace('\\', '/', dirname($r->getFileName()));
         }
 
         return $this->rootDir;
@@ -898,7 +902,7 @@ abstract class Kernel implements KernelInterface
     }
 
     
-    static public function stripComments($source)
+    public static function stripComments($source)
     {
         if (!function_exists('token_get_all')) {
             return $source;
@@ -941,10 +945,10 @@ namespace Symfony\Component\ClassLoader
 
 class ClassCollectionLoader
 {
-    static private $loaded;
+    private static $loaded;
 
     
-    static public function load($classes, $cacheDir, $name, $autoReload, $adaptive = false, $extension = '.php')
+    public static function load($classes, $cacheDir, $name, $autoReload, $adaptive = false, $extension = '.php')
     {
                 if (isset(self::$loaded[$name])) {
             return;
@@ -1022,7 +1026,7 @@ class ClassCollectionLoader
     }
 
     
-    static public function fixNamespaceDeclarations($source)
+    public static function fixNamespaceDeclarations($source)
     {
         if (!function_exists('token_get_all')) {
             return $source;
@@ -1067,7 +1071,7 @@ class ClassCollectionLoader
     }
 
     
-    static private function writeCacheFile($file, $content)
+    private static function writeCacheFile($file, $content)
     {
         $tmpFile = tempnam(dirname($file), basename($file));
         if (false !== @file_put_contents($tmpFile, $content) && @rename($tmpFile, $file)) {
@@ -1080,7 +1084,7 @@ class ClassCollectionLoader
     }
 
     
-    static private function stripComments($source)
+    private static function stripComments($source)
     {
         if (!function_exists('token_get_all')) {
             return $source;
@@ -1389,28 +1393,28 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 interface BundleInterface
 {
     
-    function boot();
+    public function boot();
 
     
-    function shutdown();
+    public function shutdown();
 
     
-    function build(ContainerBuilder $container);
+    public function build(ContainerBuilder $container);
 
     
-    function getContainerExtension();
+    public function getContainerExtension();
 
     
-    function getParent();
+    public function getParent();
 
     
-    function getName();
+    public function getName();
 
     
-    function getNamespace();
+    public function getNamespace();
 
     
-    function getPath();
+    public function getPath();
 }
 }
  

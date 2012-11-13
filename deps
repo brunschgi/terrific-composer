@@ -1,10 +1,12 @@
 [TerrificCoreBundle]
     git=https://github.com/brunschgi/TerrificCoreBundle.git
     target=/bundles/Terrific/CoreBundle
+    version=v1.0.0
 
 [TerrificComposerBundle]
     git=https://github.com/brunschgi/TerrificComposerBundle.git
     target=/bundles/Terrific/ComposerBundle
+    version=v1.0.0
 
 [cssmin]
     git=https://github.com/brunschgi/cssmin.git
