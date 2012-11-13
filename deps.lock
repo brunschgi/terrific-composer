@@ -1,8 +1,8 @@
-TerrificCoreBundle f79be6593c6ee9ffd08473ca7e4c28a77e51b8c9
-TerrificComposerBundle ac9dec7b35fcb0615ecfa46d04f9dc73cb3242d7
+TerrificCoreBundle v1.0.0
+TerrificComposerBundle v1.0.0
 cssmin 189cf2a846885d934396c6ccf79d127730841076
 jsmin 6bdb991a6e0fceb24880846c84fcfa9311021eb7
-lessphp 330402e2713773bba8515525ec55bb0fd4445f49
+lessphp da15f54506ce5023eaeb9ad9cae83470ffe018a1
 symfony v2.0.17
 twig v1.9.2
 monolog 1.0.2
