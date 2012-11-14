@@ -6,7 +6,7 @@
 [TerrificComposerBundle]
     git=https://github.com/brunschgi/TerrificComposerBundle.git
     target=/bundles/Terrific/ComposerBundle
-    version=v1.0.0
+    version=v1.0.1
 
 [cssmin]
     git=https://github.com/brunschgi/cssmin.git
