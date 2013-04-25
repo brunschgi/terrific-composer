@@ -13,6 +13,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Terrific\CoreBundle\TerrificCoreBundle(),
             new Terrific\ComposerBundle\TerrificComposerBundle(),
@@ -33,8 +34,9 @@ class AppKernel extends Kernel
             $bundles[] = new $module();
         }
 
-        if (in_array($this->getEnvironment(), array('dev'))) {
-            // here comes your dev only dependencies
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            // here comes your dev & test only dependencies
+            $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
         }
 
         return $bundles;
@@ -42,6 +44,6 @@ class AppKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__ . '/config/config_' . $this->getEnvironment() . '.yml');
+        $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
 }

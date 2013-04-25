@@ -1,34 +1,38 @@
 imports:
-    - { resource: parameters.ini }
+    - { resource: parameters.yml }
 
-# Symfony Configuration
 framework:
-    secret:          %secret%
-    charset:         UTF-8
-    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] }
-    session:
-        default_locale: %locale%
-        auto_start:     true
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trust_proxy_headers: false # Deprecated in 2.0; will be removed in 2.3 (used trusted_proxies instead)
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
 
 # Assetic Configuration
 assetic:
-    debug:          %kernel.debug%
+    debug:          "%kernel.debug%"
     use_controller: false
+    bundles: [TerrificComposition,TerrificCoreBundle,TerrificComposerBundle]
     filters:
+        cssrewrite: ~
         terrificrewrite:
-            resource: %kernel.root_dir%/../vendor/bundles/Terrific/CoreBundle/Resources/config/terrificrewrite.xml
+            resource: %kernel.root_dir%/../vendor/brunschgi/terrific-core-bundle/Terrific/CoreBundle/Resources/config/terrificrewrite.xml
         lessphp:
             apply_to: "\.less$"
-            file: %kernel.root_dir%/../vendor/lessphp/lessc.inc.php
+            file:   %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
 
 terrific_composer:
    composition_bundles: [@TerrificComposition]
