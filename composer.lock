@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/brunschgi/TerrificComposerBundle.git",
-                "reference": "af2fddf3ad3f5ed8e463ae52d84a820594fcd95d"
+                "reference": "d34ccacb0d324da81b44b94d0243f1fd465b6dc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brunschgi/TerrificComposerBundle/zipball/af2fddf3ad3f5ed8e463ae52d84a820594fcd95d",
-                "reference": "af2fddf3ad3f5ed8e463ae52d84a820594fcd95d",
+                "url": "https://api.github.com/repos/brunschgi/TerrificComposerBundle/zipball/d34ccacb0d324da81b44b94d0243f1fd465b6dc4",
+                "reference": "d34ccacb0d324da81b44b94d0243f1fd465b6dc4",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "frontend",
                 "terrific"
             ],
-            "time": "2013-04-25 13:37:24"
+            "time": "2013-04-25 14:10:42"
         },
         {
             "name": "brunschgi/terrific-core-bundle",
