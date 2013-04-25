@@ -5,9 +5,8 @@ Welcome to the Terrific Composer - a Frontend Development Framework specifically
 designed for building top-notch frontends based on the [Terrific concept](http://www.terrifically.org/).
 
 This document contains information on how to download and start using Terrific Composer.
-Terrific Composer is built on top of Symfony2. If you have any troubles during installing, please see
-the official Symfony [Installation chapter](http://symfony.com/doc/current/book/installation.html)
-for a more detailed explanation.
+Terrific Composer is built on top of Symfony2. For a more detailed explanation, see the [Installation][1]
+chapter of the Symfony Documentation.
 
 1) Download the Terrific Composer
 ---------------------------------
@@ -27,7 +26,7 @@ looks when you access `http://localhost` in a browser.
 ### Clone the git Repository
 
 I highly recommend that you download the archive file version of Terrific Composer.
-But if you still want to use git, you are on your own.
+But if you want to use git, this is for you.
 
 Run the following commands:
 
@@ -58,7 +57,12 @@ If you installed the Terrific Composer via git, then you need to download all of
 vendor libraries. If you're not sure if you need to do this, check to see if you have a ``vendor/`` directory.
 If you don't, or if that directory is empty, run the following:
 
-    php bin/vendors install
+    php composer.phar install
+
+If you don't have Composer yet, download it following the instructions on
+http://getcomposer.org/ or just run the following command:
+
+    curl -s https://getcomposer.org/installer | php
 
 Note that you **must** have git installed and be able to execute the `git`
 command to execute this script. If you don't have git available, either install
@@ -69,7 +73,7 @@ it or download the archive of Terrific Composer from (http://www.terrifically.or
 Congratulations! You're now ready to use Terrific Composer. If you've unzipped Terrific Composer
 in the web root of your computer, then you should be able to access the welcome page via:
 
-    http://localhost/terrific-composer/web/app_dev.php
+    http://localhost/terrific-composer/web/
 
 
 3) Learn about Terrific Composer!

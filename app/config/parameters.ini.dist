@@ -1,6 +1,0 @@
-; These parameters can be imported into other config files
-; by enclosing the key with % (like %database_user%)
-; Comments start with ';', as in php.ini
-[parameters]
-    locale            = en
-    secret            = ThisTokenIsNotSoSecretChangeIt
