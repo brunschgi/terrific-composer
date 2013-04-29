@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/brunschgi/TerrificComposerBundle.git",
-                "reference": "d34ccacb0d324da81b44b94d0243f1fd465b6dc4"
+                "reference": "f0cbc30af41329e7acd7ea90b7abc89834a62dd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brunschgi/TerrificComposerBundle/zipball/d34ccacb0d324da81b44b94d0243f1fd465b6dc4",
-                "reference": "d34ccacb0d324da81b44b94d0243f1fd465b6dc4",
+                "url": "https://api.github.com/repos/brunschgi/TerrificComposerBundle/zipball/f0cbc30af41329e7acd7ea90b7abc89834a62dd1",
+                "reference": "f0cbc30af41329e7acd7ea90b7abc89834a62dd1",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "frontend",
                 "terrific"
             ],
-            "time": "2013-04-25 14:10:42"
+            "time": "2013-04-29 18:07:18"
         },
         {
             "name": "brunschgi/terrific-core-bundle",
@@ -65,12 +65,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/brunschgi/TerrificCoreBundle.git",
-                "reference": "d78d2d26bb0734f3971dc63b3b32ff4f624b87d9"
+                "reference": "v1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brunschgi/TerrificCoreBundle/zipball/d78d2d26bb0734f3971dc63b3b32ff4f624b87d9",
-                "reference": "d78d2d26bb0734f3971dc63b3b32ff4f624b87d9",
+                "url": "https://api.github.com/repos/brunschgi/TerrificCoreBundle/zipball/v1.0.1",
+                "reference": "v1.0.1",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "frontend",
                 "terrific"
             ],
-            "time": "2013-04-25 15:07:35"
+            "time": "2013-04-25 15:38:44"
         },
         {
             "name": "doctrine/annotations",
@@ -633,20 +633,23 @@
         },
         {
             "name": "jdorn/sql-formatter",
-            "version": "v1.2.0",
+            "version": "v1.2.9",
             "source": {
                 "type": "git",
-                "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "v1.2.0"
+                "url": "https://github.com/jdorn/sql-formatter.git",
+                "reference": "v1.2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/v1.2.0.zip",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/v1.2.9",
+                "reference": "v1.2.9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "extra": {
@@ -661,7 +664,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "MIT"
             ],
             "authors": [
                 {
@@ -676,7 +679,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2012-12-22 21:46:50"
+            "time": "2013-04-26 18:42:52"
         },
         {
             "name": "kriswallsmith/assetic",
