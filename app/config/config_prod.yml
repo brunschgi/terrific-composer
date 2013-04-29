@@ -16,9 +16,9 @@ assetic:
     filters:
         cssmin:
             apply_to: "\.css$"
-            file:   %kernel.root_dir%/../vendor/natxet/CssMin/CssMin.php
+            file:   %kernel.root_dir%/../vendor/natxet/CssMin/src/CssMin.php
 
         jsmin:
-            apply_to: "\.js"
+            apply_to: "\.js$"
             file:   %kernel.root_dir%/../vendor/nick4fake/jsmin/JsMin/Minify.php
-            resource: %kernel.root_dir%/../vendor/bundles/Terrific/CoreBundle/Resources/config/jsmin.xml
+            resource: %kernel.root_dir%/../vendor/brunschgi/terrific-core-bundle/Terrific/CoreBundle/Resources/config/jsmin.xml

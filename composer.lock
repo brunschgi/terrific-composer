@@ -65,12 +65,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/brunschgi/TerrificCoreBundle.git",
-                "reference": "9432f56c10ae4f43e45a2a5fe089ca8891678fd8"
+                "reference": "d78d2d26bb0734f3971dc63b3b32ff4f624b87d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brunschgi/TerrificCoreBundle/zipball/9432f56c10ae4f43e45a2a5fe089ca8891678fd8",
-                "reference": "9432f56c10ae4f43e45a2a5fe089ca8891678fd8",
+                "url": "https://api.github.com/repos/brunschgi/TerrificCoreBundle/zipball/d78d2d26bb0734f3971dc63b3b32ff4f624b87d9",
+                "reference": "d78d2d26bb0734f3971dc63b3b32ff4f624b87d9",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 "frontend",
                 "terrific"
             ],
-            "time": "2013-04-25 13:39:30"
+            "time": "2013-04-25 15:07:35"
         },
         {
             "name": "doctrine/annotations",
